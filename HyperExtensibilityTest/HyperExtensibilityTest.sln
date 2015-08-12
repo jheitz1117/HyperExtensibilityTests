@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodeService1", "NodeService1\NodeService1.csproj", "{28B31DE2-168C-4772-B5A7-5B383C2BF6CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodeClient1", "NodeClient1\NodeClient1.csproj", "{18FEA8F8-54E6-40D7-9714-7793FD156028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodeExtensions.Shared", "NodeExtensions.Shared\NodeExtensions.Shared.csproj", "{2BC87E0A-3939-4512-8E23-87FE1E908FA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28B31DE2-168C-4772-B5A7-5B383C2BF6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B31DE2-168C-4772-B5A7-5B383C2BF6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B31DE2-168C-4772-B5A7-5B383C2BF6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B31DE2-168C-4772-B5A7-5B383C2BF6CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18FEA8F8-54E6-40D7-9714-7793FD156028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18FEA8F8-54E6-40D7-9714-7793FD156028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18FEA8F8-54E6-40D7-9714-7793FD156028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18FEA8F8-54E6-40D7-9714-7793FD156028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BC87E0A-3939-4512-8E23-87FE1E908FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BC87E0A-3939-4512-8E23-87FE1E908FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BC87E0A-3939-4512-8E23-87FE1E908FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BC87E0A-3939-4512-8E23-87FE1E908FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
