@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hyper.WcfHosting</name>
+    </assembly>
+    <members>
+        <member name="T:Hyper.WcfHosting.CancellableServiceHost">
+            <summary>
+            <see cref="T:System.ServiceModel.ServiceHost"/> implementation that supports cancellation.
+            </summary>
+        </member>
+        <member name="M:Hyper.WcfHosting.CancellableServiceHost.#ctor(System.Type,System.Uri[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyper.WcfHosting.CancellableServiceHost"/> class with the type of service and its base addresses specified.
+            </summary>
+            <param name="type">The type of hosted service.</param>
+            <param name="baseAddresses">An array of type <see cref="T:System.Uri"/> that contains the base addresses for the hosted service.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.CancellableServiceHost.#ctor(System.Object,System.Uri[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hyper.WcfHosting.CancellableServiceHost"/> class with the instance of the service and its base addresses specified.
+            </summary>
+            <param name="singletonInstance">The instance of the hosted service.</param>
+            <param name="baseAddresses">An array of type <see cref="T:System.Uri"/> that contains the base addresses for the hosted service.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.CancellableServiceHost.RegisterCancellationDelegate(System.Action)">
+            <summary>
+            Registers a delegate that will be called when this <see cref="T:System.Threading.CancellationToken"/> is canceled.
+            </summary>
+            <param name="callback">The delegate to be executed when the <see cref="T:System.Threading.CancellationToken"/> is canceled.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.CancellableServiceHost.RegisterCancellationDelegate(System.Action,System.Boolean)">
+            <summary>
+            Registers a delegate that will be called when this <see cref="T:System.Threading.CancellationToken"/> is canceled.
+            </summary>
+            <param name="callback">The delegate to be executed when the <see cref="T:System.Threading.CancellationToken"/> is canceled.</param>
+            <param name="useSynchronizationContext">A Boolean value that indicates whether to capture the current <see cref="T:System.Threading.SynchronizationContext"/> and use it when invoking the <paramref name="callback"/>.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.CancellableServiceHost.RegisterCancellationDelegate(System.Action{System.Object},System.Object)">
+            <summary>
+            Registers a delegate that will be called when this <see cref="T:System.Threading.CancellationToken"/> is canceled.
+            </summary>
+            <param name="callback">The delegate to be executed when the <see cref="T:System.Threading.CancellationToken"/> is canceled.</param>
+            <param name="state">The state to pass to the <paramref name="callback"/> when the delegate is invoked. This may be null.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.CancellableServiceHost.RegisterCancellationDelegate(System.Action{System.Object},System.Object,System.Boolean)">
+            <summary>
+            Registers a delegate that will be called when this CancellationToken is canceled.
+            </summary>
+            <param name="callback">The delegate to be executed when the <see cref="T:System.Threading.CancellationToken"/> is canceled.</param>
+            <param name="state">The state to pass to the <paramref name="callback"/> when the delegate is invoked. This may be null.</param>
+            <param name="useSynchronizationContext">A Boolean value that indicates whether to capture the current <see cref="T:System.Threading.SynchronizationContext"/> and use it when invoking the <paramref name="callback"/>.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.CancellableServiceHost.OnAbort">
+            <summary>
+            Aborts the service.
+            </summary>
+        </member>
+        <member name="M:Hyper.WcfHosting.CancellableServiceHost.OnClosing">
+            <summary>
+            Invoked during the transition of a communication object into the closing state.
+            </summary>
+        </member>
+        <member name="M:Hyper.WcfHosting.CancellableServiceHost.OnClosed">
+            <summary>
+            Disposes of disposable services that are being hosted when the service host is closed.
+            </summary>
+        </member>
+        <member name="T:Hyper.WcfHosting.DefaultServiceHostExceptionHandler">
+            <summary>
+            Default implementation of <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> that writes exceptions to the <see cref="T:System.Diagnostics.Trace"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.WcfHosting.DefaultServiceHostExceptionHandler.HandleException(System.Exception)">
+            <summary>
+            Calls <see cref="M:System.Exception.ToString"/> on the specified <see cref="T:System.Exception"/> and writes the results to <see cref="T:System.Diagnostics.Trace"/>.<see cref="M:System.Diagnostics.Trace.WriteLine(System.Object)"/>.
+            </summary>
+            <param name="ex">The <see cref="T:System.Exception"/> to trace.</param>
+        </member>
+        <member name="T:Hyper.WcfHosting.HyperServiceHostContainer">
+            <summary>
+            Simplifies self-hosting for <see cref="T:System.ServiceModel.ServiceHost"/> objects.
+            Supports singleton service contract implementations that implement <see cref="T:System.IDisposable"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.WcfHosting.HyperServiceHostContainer.#ctor(System.Func{System.ServiceModel.ServiceHost},Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.WcfHosting.HyperServiceHostContainer"/> with the specified factory method and <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementation.
+            </summary>
+            <param name="factory">The delegate that is invoked to create the <see cref="T:System.ServiceModel.ServiceHost"/> object to wrap.</param>
+            <param name="exceptionHandler">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementation to use when any is thrown.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.HyperServiceHostContainer.#ctor(System.Func{System.ServiceModel.ServiceHost},Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler,Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler,Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.WcfHosting.HyperServiceHostContainer"/> with the specified factory method and <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementations.
+            </summary>
+            <param name="factory">The delegate that is invoked to create the <see cref="T:System.ServiceModel.ServiceHost"/> object to wrap.</param>
+            <param name="timeoutExceptionHandler">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementation to use when a <see cref="T:System.TimeoutException"/> is thrown.</param>
+            <param name="communicationExceptionHandler">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementation to use when a <see cref="T:System.ServiceModel.CommunicationException"/> is thrown.</param>
+            <param name="genericExceptionHandler">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementation to use when an <see cref="T:System.Exception"/> is thrown that is not a <see cref="T:System.TimeoutException"/> or a <see cref="T:System.ServiceModel.CommunicationException"/>.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.HyperServiceHostContainer.#ctor(Hyper.Extensibility.WcfHosting.IServiceHostFactory,Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.WcfHosting.HyperServiceHostContainer"/> with the specified <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostFactory"/> and <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementations.
+            </summary>
+            <param name="hostFactory">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostFactory"/> that is used to create the <see cref="T:System.ServiceModel.ServiceHost"/> object to wrap.</param>
+            <param name="exceptionHandler">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementation to use when any is thrown.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.HyperServiceHostContainer.#ctor(Hyper.Extensibility.WcfHosting.IServiceHostFactory,Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler,Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler,Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.WcfHosting.HyperServiceHostContainer"/> with the specified <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostFactory"/> and <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementations.
+            </summary>
+            <param name="hostFactory">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostFactory"/> that is used to create the <see cref="T:System.ServiceModel.ServiceHost"/> object to wrap.</param>
+            <param name="timeoutExceptionHandler">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementation to use when a <see cref="T:System.TimeoutException"/> is thrown.</param>
+            <param name="communicationExceptionHandler">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementation to use when a <see cref="T:System.ServiceModel.CommunicationException"/> is thrown.</param>
+            <param name="genericExceptionHandler">The <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementation to use when an <see cref="T:System.Exception"/> is thrown that is not a <see cref="T:System.TimeoutException"/> or a <see cref="T:System.ServiceModel.CommunicationException"/>.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.HyperServiceHostContainer.Start">
+            <summary>
+            Creates the <see cref="T:System.ServiceModel.ServiceHost"/> if it does not exist and calls its Open() method. Exception handling is
+            delegated to the <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementations specified in the constructor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.WcfHosting.HyperServiceHostContainer.Stop">
+            <summary>
+            Calls the <see cref="!:ServiceHost.Abort()"/> method if it is in the <see cref="F:System.ServiceModel.CommunicationState.Faulted"/> state.
+            Otherwise, calls the <see cref="!:ServiceHost.Close()"/> method instead.
+            Calls <see cref="M:System.IDisposable.Dispose"/> on the hosted service if it implements <see cref="T:System.IDisposable"/>.
+            Exception handling is delegated to the <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostExceptionHandler"/> implementations specified in the constructor.
+            </summary>
+        </member>
+        <member name="P:Hyper.WcfHosting.HyperServiceHostContainer.Endpoints">
+            <summary>
+            List of endpoints on which the <see cref="T:System.ServiceModel.ServiceHost"/> is listening.
+            </summary>
+        </member>
+        <member name="T:Hyper.WcfHosting.ServiceHostFactoryMethodWrapper">
+            <summary>
+            <see cref="T:Hyper.Extensibility.WcfHosting.IServiceHostFactory"/> implementation to wrap a factory method that creates instances of <see cref="T:System.ServiceModel.ServiceHost"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.WcfHosting.ServiceHostFactoryMethodWrapper.#ctor(System.Func{System.ServiceModel.ServiceHost})">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.WcfHosting.ServiceHostFactoryMethodWrapper"/> using the specified factory method.
+            </summary>
+            <param name="factory">The delegate that is invoked to create the <see cref="T:System.ServiceModel.ServiceHost"/> object.</param>
+        </member>
+        <member name="M:Hyper.WcfHosting.ServiceHostFactoryMethodWrapper.Create">
+            <summary>
+            Creates an instance of <see cref="T:System.ServiceModel.ServiceHost"/>.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

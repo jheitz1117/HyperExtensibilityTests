@@ -50,11 +50,13 @@
     <Reference Include="Hyper.NodeServices.Extensibility">
       <HintPath>..\Assemblies\Hyper.NodeServices.Extensibility.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.WcfHosting">
+    <Reference Include="Hyper.WcfHosting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Hyper.WcfHosting.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

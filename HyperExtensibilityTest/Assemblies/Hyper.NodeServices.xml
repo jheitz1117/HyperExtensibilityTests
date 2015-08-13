@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hyper.NodeServices</name>
+    </assembly>
+    <members>
+        <member name="T:Hyper.NodeServices.ActivityTracking.TaskProgressCacheMonitor">
+            <summary>
+            Collects <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo"/> objects based on task ID.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.ActivityTracking.TaskProgressCacheMonitor.GetTaskProgressInfo(System.String)">
+            <summary>
+            Gets the <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo"/> object from the cache with the specified task ID. If no cache item exists with the specified task ID, return null.
+            </summary>
+            <param name="taskId">The task ID to look for.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.ActivityTracking.TaskProgressCacheMonitor.AddOrGetExisting``1(System.String,System.Func{``0})">
+            <summary>
+            This method wraps the <see cref="T:System.Runtime.Caching.MemoryCache"/> object's AddOrGetExisting() method. The need for the wrapper is obscure and only becomes evident upon close examination.
+            It turns out that <see cref="T:System.Runtime.Caching.MemoryCache"/>'s AddOrGetExisting() method does not return the new value you're giving it, but rather the old value that was there before.
+            For new inserts, this old value is considered to be null, so you get back a null value instead of the value you tried to insert as you might have expected. This wrapper
+            accounts for that small caveat by utilizing .NET's <see cref="T:System.Lazy`1"/> class.
+            
+            This wrapper method was taken from Adam Anderson's blog at http://blog.falafel.com/working-system-runtime-caching-memorycache/.
+            </summary>
+            <typeparam name="T">Type of object being stored in the <see cref="T:System.Runtime.Caching.MemoryCache"/></typeparam>
+            <param name="key">A unique identifier for the cache entry to add or get.</param>
+            <param name="valueFactory">The delegate that is invoked to produce the lazily initialized value when it is needed.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.ActivityTracking.ChildNodeResponseMonitor.ShouldTrack(Hyper.NodeServices.Extensibility.ActivityTracking.IHyperNodeActivityEventItem)">
+            <summary>
+            Filter out events that don't contain a response from a child node.
+            </summary>
+            <param name="activity"><see cref="T:Hyper.NodeServices.ActivityTracking.HyperNodeActivityEventItem"/> object to use to filter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.ActivityTracking.HyperNodeServiceActivityTracker.TrackFinished(Hyper.NodeServices.Contracts.HyperNodeMessageResponse)">
+            <summary>
+            This method should only ever be called once at the very end of a HyperNode's processing of a message after all of the child threads have completed.
+            </summary>
+            <param name="response">The complete <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/> object to report.</param>
+        </member>
+        <member name="P:Hyper.NodeServices.Configuration.HyperNodeConfigurationSection.MaxConcurrentTasks">
+            <summary>
+            Specifies an upper bound on the number of tasks that can run concurrently. A value of -1 means there is no upper bound.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.HyperNodeService">
+            <summary>
+            Processes <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> objects and returns <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/> objects.
+            This class is a singleton and must be referenced using the static <see cref="P:Hyper.NodeServices.HyperNodeService.Instance"/> property.
+            This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.ProcessMessage(Hyper.NodeServices.Contracts.HyperNodeMessageRequest)">
+            <summary>
+            Processes and/or forwards the specified message.
+            </summary>
+            <param name="message">The <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> object to process.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.Cancel">
+            <summary>
+            Initiates a cancellation request.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.WaitAllChildTasks">
+            <summary>
+            Waits for all of the child <see cref="T:System.Threading.Tasks.Task"/> objects to complete execution.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.WaitAllChildTasks(System.Threading.CancellationToken)">
+            <summary>
+            Waits for all of the child <see cref="T:System.Threading.Tasks.Task"/> objects to complete execution.
+            </summary>
+            <param name="token">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the tasks to complete.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.WaitAllChildTasks(System.TimeSpan)">
+            <summary>
+            Waits for all of the child <see cref="T:System.Threading.Tasks.Task"/> objects to complete execution.
+            </summary>
+            <param name="timeout">A <see cref="T:System.TimeSpan"/> that represents the number of milliseconds to wait, or a <see cref="T:System.TimeSpan"/> that represents -1 milliseconds to wait indefinitely.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.WaitAllChildTasks(System.Int32)">
+            <summary>
+            Waits for all of the child <see cref="T:System.Threading.Tasks.Task"/> objects to complete execution.
+            </summary>
+            <param name="millisecondsTimeout">The number of milliseconds to wait, or <see cref="F:System.Threading.Timeout.Infinite"/> (-1) to wait indefinitely.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.WaitAllChildTasks(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Waits for all of the child <see cref="T:System.Threading.Tasks.Task"/> objects to complete execution.
+            </summary>
+            <param name="millisecondsTimeout">The number of milliseconds to wait, or <see cref="F:System.Threading.Timeout.Infinite"/> (-1) to wait indefinitely.</param>
+            <param name="token">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the tasks to complete.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.Dispose">
+            <summary>
+            Provides one last chance to dispose of resources.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.#ctor(System.String)">
+            <summary>
+            Initializes an instance of the <see cref="T:Hyper.NodeServices.HyperNodeService"/> class with the specified name.
+            </summary>
+            <param name="hyperNodeName">The name of the <see cref="T:Hyper.NodeServices.HyperNodeService"/>.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.ForwardMessage(Hyper.NodeServices.HyperNodeTaskInfo)">
+            <summary>
+            Forwards the specified <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> object using the specified <see cref="T:Hyper.NodeServices.HyperNodeTaskInfo"/> object.
+            </summary>
+            <param name="taskInfo">The <see cref="T:Hyper.NodeServices.HyperNodeTaskInfo"/> object containing the information to forward.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeService.TaskCleanUp(System.String)">
+            <summary>
+            Removes the task with the specified <paramref name="taskId"/> from the internal dictionary of tasks and calls Dispose() on it.
+            </summary>
+            <param name="taskId">The ID of the task to clean up.</param>
+        </member>
+        <member name="P:Hyper.NodeServices.HyperNodeService.Instance">
+            <summary>
+            Represents the singleton instance of the <see cref="T:Hyper.NodeServices.HyperNodeService"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeTaskInfo.AddChildTask(System.Threading.Tasks.Task)">
+            <summary>
+            Adds an object to the end of the <see cref="T:System.Collections.Generic.List`1"/>.
+            </summary>
+            <param name="childTask">The object to be added to the end of the <see cref="T:System.Collections.Generic.List`1"/>. The value can be null.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeTaskInfo.AddChildTasks(System.Collections.Generic.IEnumerable{System.Threading.Tasks.Task})">
+            <summary>
+            Adds the elements of the specified collection to the end of the <see cref="T:System.Collections.Generic.List`1"/>.
+            </summary>
+            <param name="collection">The collection whose elements should be added to the end of the <see cref="T:System.Collections.Generic.List`1"/>. The collection itself cannot be null, but it can contain elements that are null.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeTaskInfo.WhenChildTasks">
+            <summary>
+            Creates a task that will complete when all of the child tasks have completed.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.HyperNodeTaskInfo.WaitChildTasks(System.Threading.CancellationToken)">
+            <summary>
+            Waits for all of the child <see cref="T:System.Threading.Tasks.Task"/> objects to complete execution.
+            </summary>
+            <param name="token">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the tasks to complete.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.TaskIdProviders.TaskIdCreationContext">
+            <summary>
+            This class provides a read-only version of a <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> for use in user-defined implementations of the <see cref="T:Hyper.NodeServices.Extensibility.ITaskIdProvider"/> interface.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hyper.NodeServices.Extensibility</name>
+    </assembly>
+    <members>
+        <member name="F:Hyper.NodeServices.Extensibility.ActivityTracking.HyperNodeServiceActivityMonitor._name">
+            <summary>
+            Allows client code to obtain a reference this HyperNodeServiceMonitor instance
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Extensibility.ActivityTracking.HyperNodeServiceActivityMonitor._enabled">
+            <summary>
+            Allows this activity monitor to be turned on and off
+            </summary>
+        </member>
+    </members>
+</doc>
