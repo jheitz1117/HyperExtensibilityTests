@@ -39,6 +39,11 @@
             Indicates that the receiving <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> has already reached its maximum number of concurrent tasks.
             </summary>
         </member>
+        <member name="F:Hyper.NodeServices.Contracts.HyperNodeActionReasonType.CancellationRequested">
+            <summary>
+            Indicates that the Cancel() method has been called on the receiving <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> and no new tasks are being started.
+            </summary>
+        </member>
         <member name="F:Hyper.NodeServices.Contracts.HyperNodeActionType.None">
             <summary>
             Indicates that the receiving <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> was completely unable to recognize, forward, or otherwise process the message in any capacity.

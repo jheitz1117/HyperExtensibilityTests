@@ -4,5 +4,44 @@
         <name>Hyper.ActivityTracking</name>
     </assembly>
     <members>
+        <member name="T:Hyper.ActivityTracking.TrackActivityEventHandler">
+            <summary>
+            Delegate to handle events fired by <see cref="T:Hyper.ActivityTracking.HyperActivityTracker"/> implementations.
+            </summary>
+            <param name="sender">The object that fired the event.</param>
+            <param name="e">The <see cref="T:Hyper.ActivityTracking.TrackActivityEventArgs"/> object containing the event data.</param>
+        </member>
+        <member name="T:Hyper.ActivityTracking.HyperActivityTracker">
+            <summary>
+            Base class for tracking arbitrary activity events.
+            </summary>
+        </member>
+        <member name="M:Hyper.ActivityTracking.HyperActivityTracker.OnTrackActivity(Hyper.ActivityTracking.TrackActivityEventArgs)">
+            <summary>
+            When overridden in a derived class, fires an event containing the specified <see cref="T:Hyper.ActivityTracking.TrackActivityEventArgs"/> object.
+            </summary>
+            <param name="e">The <see cref="T:Hyper.ActivityTracking.TrackActivityEventArgs"/> data for the event.</param>
+        </member>
+        <member name="E:Hyper.ActivityTracking.HyperActivityTracker.TrackActivityHandler">
+            <summary>
+            Allows consumers to respond to activity events.
+            </summary>
+        </member>
+        <member name="T:Hyper.ActivityTracking.TrackActivityEventArgs">
+            <summary>
+            Event arguments for <see cref="T:Hyper.ActivityTracking.HyperActivityTracker"/> objects.
+            </summary>
+        </member>
+        <member name="M:Hyper.ActivityTracking.TrackActivityEventArgs.#ctor(Hyper.Extensibility.ActivityTracking.IActivityItem)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.ActivityTracking.TrackActivityEventArgs"/> using the specified <see cref="T:Hyper.Extensibility.ActivityTracking.IActivityItem"/>.
+            </summary>
+            <param name="activityItem">The <see cref="T:Hyper.Extensibility.ActivityTracking.IActivityItem"/> describing the event.</param>
+        </member>
+        <member name="P:Hyper.ActivityTracking.TrackActivityEventArgs.ActivityItem">
+            <summary>
+            The <see cref="T:Hyper.Extensibility.ActivityTracking.IActivityItem"/> describing the event.
+            </summary>
+        </member>
     </members>
 </doc>

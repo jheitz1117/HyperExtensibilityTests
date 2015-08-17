@@ -43,9 +43,34 @@
             </summary>
             <param name="response">The complete <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/> object to report.</param>
         </member>
+        <member name="P:Hyper.NodeServices.Configuration.HyperNodeConfigurationSection.HyperNodeName">
+            <summary>
+            Specifies the name of the <see cref="T:Hyper.NodeServices.HyperNodeService"/>. This attribute is required.
+            The default value is "HyperNode1".
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Configuration.HyperNodeConfigurationSection.EnableTaskProgressCache">
+            <summary>
+            Specifies whether the task progress cache will be enabled when the <see cref="T:Hyper.NodeServices.HyperNodeService"/> starts.
+            The cache is not enabled by default.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Configuration.HyperNodeConfigurationSection.EnableDiagnostics">
+            <summary>
+            Specifies whether diagnostics will be enabled when the <see cref="T:Hyper.NodeServices.HyperNodeService"/> starts.
+            Diagnostics are not enabled by default.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Configuration.HyperNodeConfigurationSection.TaskProgressCacheDurationMinutes">
+            <summary>
+            Specifies a starting value for the task progress cache duration when the <see cref="T:Hyper.NodeServices.HyperNodeService"/> starts.
+            The default value is 60 minutes.
+            </summary>
+        </member>
         <member name="P:Hyper.NodeServices.Configuration.HyperNodeConfigurationSection.MaxConcurrentTasks">
             <summary>
             Specifies an upper bound on the number of tasks that can run concurrently. A value of -1 means there is no upper bound.
+            No upper bound is specified by default.
             </summary>
         </member>
         <member name="T:Hyper.NodeServices.HyperNodeService">
@@ -99,7 +124,7 @@
         </member>
         <member name="M:Hyper.NodeServices.HyperNodeService.Dispose">
             <summary>
-            Provides one last chance to dispose of resources.
+            Releases disposable resources consumed by this <see cref="T:Hyper.NodeServices.HyperNodeService"/> instance.
             </summary>
         </member>
         <member name="M:Hyper.NodeServices.HyperNodeService.#ctor(System.String)">

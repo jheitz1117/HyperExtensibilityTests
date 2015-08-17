@@ -6,6 +6,19 @@ using Hyper.WcfHosting;
 
 namespace NodeService1
 {
+    /* To setup a HyperNode service:
+     * 
+     * 1) Add the "Reactive Extensions - Main Library" NuGet package
+     *        -When HyperNet DLLs are made into their own NuGet package, need to list reactive extensions as NuGet dependency
+     * 2) Include the following HyperNet libraries:
+     *        -Hyper.ActivityTracking.dll
+     *        -Hyper.Extensibility.dll
+     *        -Hyper.NodeServices.dll
+     *        -Hyper.NodeServices.Client.dll
+     *        -Hyper.NodeServices.Contracts.dll
+     *        -Hyper.NodeServices.Extensibility.dll
+     *        -Hyper.WcfHosting.dll
+     */
     class Program
     {
         static void Main()
