@@ -4,6 +4,73 @@
         <name>Hyper.NodeServices.Contracts</name>
     </assembly>
     <members>
+        <member name="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest">
+            <summary>
+            Marks a class as a request object for a custom command module. Classes implementing this interface can be serialized
+            and deserialized using an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer"/>.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer">
+            <summary>
+            Provides methods to serialize and deserialize <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> objects.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandRequest)">
+            <summary>
+            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object into a string.
+            </summary>
+            <param name="request">The <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object to serialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer.Deserialize(System.String)">
+            <summary>
+            Deserializes the specified <paramref name="requestString"/> and returns an <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object.
+            </summary>
+            <param name="requestString">The string containing the object data to deserialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer.GetRequestType">
+            <summary>
+            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse">
+            <summary>
+            Defines a class that is returned from a custom command module. Classes implementing this interface can be serialized
+            and deserialized using an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse.ProcessStatusFlags">
+            <summary>
+            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer">
+            <summary>
+            Provides methods to serialize and deserialize <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> objects.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandResponse)">
+            <summary>
+            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object into a string.
+            </summary>
+            <param name="response">The <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object to serialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer.Deserialize(System.String)">
+            <summary>
+            Deserializes the specified <paramref name="responseString"/> and returns an <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object.
+            </summary>
+            <param name="responseString">The string containing the object data to deserialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer.GetResponseType">
+            <summary>
+            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="F:Hyper.NodeServices.Contracts.HyperNodeActionReasonType.Unknown">
             <summary>
             Indicates that no reason was specified for the action taken by the receiving <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
@@ -79,6 +146,23 @@
             Indicates that the command is a user-defined command.
             </summary>
         </member>
+        <member name="T:Hyper.NodeServices.Contracts.IHyperNodeService">
+            <summary>
+            Processes <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> objects and returns <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/> objects.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.IHyperNodeService.ProcessMessage(Hyper.NodeServices.Contracts.HyperNodeMessageRequest)">
+            <summary>
+            Processes and/or forwards the specified message.
+            </summary>
+            <param name="message">The <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> object to process.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.MessageProcessOptionFlags">
+            <summary>
+            Flags that indicate what happened while a command was running in a <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>
+            </summary>
+        </member>
         <member name="F:Hyper.NodeServices.Contracts.MessageProcessOptionFlags.None">
             <summary>
             Specifies that the recipient node should process this message synchronously without returning a task trace or caching activity events
@@ -138,6 +222,309 @@
             <summary>
             Indicates that the ICommandRequest implementation was invalid.
             </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractCommandJsonSerializer`2">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2"/> that can serialize instances
+            of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> using a <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/>.
+            This class cannot be inherited.
+            </summary>
+            <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
+            <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2">
+            <summary>
+            Abstract implementation combining <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer"/>
+            to serialize instances of both <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.
+            </summary>
+            <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
+            <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.CreateRequestSerializer">
+            <summary>
+            When overridden in a derived class, creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1"/> to use for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.CreateResponseSerializer">
+            <summary>
+            When overridden in a derived class, creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1"/> to use for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandRequest)">
+            <summary>
+            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> into a string.
+            </summary>
+            <param name="request">The <typeparamref name="TRequest"/> instance to serialize. This instance must implement <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandResponse)">
+            <summary>
+            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> into a string.
+            </summary>
+            <param name="response">The <typeparamref name="TResponse"/> instance to serialize. This instance must implement <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.Hyper#NodeServices#Contracts#Extensibility#ICommandRequestSerializer#Deserialize(System.String)">
+            <summary>
+            Deserializes the specified <paramref name="requestString"/> into an object of type <typeparamref name="TRequest" />.
+            </summary>
+            <param name="requestString">The request string to deserialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.Hyper#NodeServices#Contracts#Extensibility#ICommandResponseSerializer#Deserialize(System.String)">
+            <summary>
+            Deserializes the specified <paramref name="responseString"/> into an object of type <typeparamref name="TResponse" />.
+            </summary>
+            <param name="responseString">The response string to deserialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.GetRequestType">
+            <summary>
+            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.GetResponseType">
+            <summary>
+            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractCommandJsonSerializer`2.CreateRequestSerializer">
+            <summary>
+            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.DataContractRequestJsonSerializer`1"/> to use for request serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractCommandJsonSerializer`2.CreateResponseSerializer">
+            <summary>
+            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.DataContractResponseJsonSerializer`1"/> to use for response serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractCommandSerializer`2">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2"/> that can serialize instances
+            of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> using a <see cref="T:System.Runtime.Serialization.DataContractSerializer"/>.
+            This class cannot be inherited.
+            </summary>
+            <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
+            <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractCommandSerializer`2.CreateRequestSerializer">
+            <summary>
+            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.DataContractRequestSerializer`1"/> to use for request serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractCommandSerializer`2.CreateResponseSerializer">
+            <summary>
+            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.DataContractResponseSerializer`1"/> to use for response serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractRequestJsonSerializer`1">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>
+            using a <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/>. This class cannot be inherited.
+            </summary>
+            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1">
+            <summary>
+            Abstract implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.
+            </summary>
+            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1">
+            <summary>
+            Wraps an instance of <see cref="T:System.Runtime.Serialization.XmlObjectSerializer"/> and simplifies the task of serializing to and deserializing from string data.
+            </summary>
+            <typeparam name="T">The type of object to be serialized or deserialized.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1"/> using <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
+            instances created from <see cref="T:System.Text.Encoding"/>.<see cref="P:System.Text.Encoding.Default"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.#ctor(Hyper.Extensibility.IO.IStringTransform,Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
+            instances for serialization and deserialization, respectively.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming the serialized bytes into a string.</param>
+            <param name="deserializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming a string into bytes to be deserialized.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.Serialize(`0)">
+            <summary>
+            Serializes the specified object into a string.
+            </summary>
+            <param name="target">The <typeparamref name="T"/> instance to serialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.Deserialize(System.String)">
+            <summary>
+            Deserializes the specified <paramref name="inputString"/> into an object of type <typeparamref name="T" />.
+            </summary>
+            <param name="inputString">The string to deserialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.CreateSerializer">
+            <summary>
+            When overridden in a derived class, creates an instance of <see cref="T:System.Runtime.Serialization.XmlObjectSerializer"/> to use for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.SerializationTransform">
+            <summary>
+            The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming the serialized bytes into a string.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.DeserializationTransform">
+            <summary>
+            The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming a string into bytes to be deserialized.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandRequest)">
+            <summary>
+            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> into a string.
+            </summary>
+            <param name="request">The <typeparamref name="T"/> instance to serialize. This instance must implement <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1.Hyper#NodeServices#Contracts#Extensibility#ICommandRequestSerializer#Deserialize(System.String)">
+            <summary>
+            Deserializes the specified <paramref name="requestString"/> into an object of type <typeparamref name="T" />.
+            </summary>
+            <param name="requestString">The string to deserialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1.GetRequestType">
+            <summary>
+            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractRequestJsonSerializer`1.CreateSerializer">
+            <summary>
+            Creates an instance of <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/> to use for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractRequestSerializer`1">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>
+            using a <see cref="T:System.Runtime.Serialization.DataContractSerializer"/>. This class cannot be inherited.
+            </summary>
+            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractRequestSerializer`1.CreateSerializer">
+            <summary>
+            Creates an instance of <see cref="T:System.Runtime.Serialization.DataContractSerializer"/> to use for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractResponseJsonSerializer`1">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>
+            using a <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/>. This class cannot be inherited.
+            </summary>
+            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1">
+            <summary>
+            Abstract implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.
+            </summary>
+            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandResponse)">
+            <summary>
+            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> into a string.
+            </summary>
+            <param name="response">The <typeparamref name="T"/> instance to serialize. This instance must implement <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1.Hyper#NodeServices#Contracts#Extensibility#ICommandResponseSerializer#Deserialize(System.String)">
+            <summary>
+            Deserializes the specified <paramref name="responseString"/> into an object of type <typeparamref name="T" />.
+            </summary>
+            <param name="responseString">The string to deserialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1.GetResponseType">
+            <summary>
+            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractResponseJsonSerializer`1.CreateSerializer">
+            <summary>
+            Creates an instance of <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/> to use for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractResponseSerializer`1">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>
+            using a <see cref="T:System.Runtime.Serialization.DataContractSerializer"/>. This class cannot be inherited.
+            </summary>
+            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractResponseSerializer`1.CreateSerializer">
+            <summary>
+            Creates an instance of <see cref="T:System.Runtime.Serialization.DataContractSerializer"/> to use for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractCommandSerializer`2">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2"/> that can serialize instances
+            of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> using a <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/>.
+            This class cannot be inherited.
+            </summary>
+            <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
+            <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.NetDataContractCommandSerializer`2.CreateRequestSerializer">
+            <summary>
+            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractRequestSerializer`1"/> to use for request serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.NetDataContractCommandSerializer`2.CreateResponseSerializer">
+            <summary>
+            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractResponseSerializer`1"/> to use for response serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractRequestSerializer`1">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>
+            using a <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/>. This class cannot be inherited.
+            </summary>
+            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.NetDataContractRequestSerializer`1.CreateSerializer">
+            <summary>
+            Creates an instance of <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/> to use for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractResponseSerializer`1">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>
+            using a <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/>. This class cannot be inherited.
+            </summary>
+            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Serializers.NetDataContractResponseSerializer`1.CreateSerializer">
+            <summary>
+            Creates an instance of <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/> to use for serialization.
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

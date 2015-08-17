@@ -51,19 +51,19 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Hyper.Extensibility.Cryptography.IStringTransform">
+        <member name="T:Hyper.Extensibility.IO.IStringTransform">
             <summary>
             Defines methods to transform <see cref="T:System.String"/> objects into <see cref="T:System.Byte"/> arrays and vice versa.
             </summary>
         </member>
-        <member name="M:Hyper.Extensibility.Cryptography.IStringTransform.GetString(System.Byte[])">
+        <member name="M:Hyper.Extensibility.IO.IStringTransform.GetString(System.Byte[])">
             <summary>
             Transforms the specified <see cref="T:System.Byte"/> array into a <see cref="T:System.String"/> representation.
             </summary>
             <param name="input">The <see cref="T:System.Byte"/> array to transform.</param>
             <returns></returns>
         </member>
-        <member name="M:Hyper.Extensibility.Cryptography.IStringTransform.GetBytes(System.String)">
+        <member name="M:Hyper.Extensibility.IO.IStringTransform.GetBytes(System.String)">
             <summary>
             Transforms the specified <see cref="T:System.String"/> into a <see cref="T:System.Byte"/> array.
             </summary>

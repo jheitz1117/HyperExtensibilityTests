@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ServiceModel;
-using System.ServiceModel.Activation;
 using Hyper.NodeServices;
 using Hyper.WcfHosting;
 
@@ -25,7 +24,7 @@ namespace NodeService1
         {
             // Can follow the hosting attempts for tutorial on how to self-host
             HostingAttempt4();
-
+            
             // TODO: Need to test documentation for Hyper.NodeServices namespace. This will be a doosey.
             // TODO: Need to test extensibility for Hyper.NodeServices namespace.
         }
@@ -333,7 +332,6 @@ namespace NodeService1
             {
                 Console.WriteLine("    " + endpoint.Address);
             }
-            var stuff = new ServiceHostFactory();
             
             // Wait for user input to shutdown
             Console.ReadKey();
