@@ -56,6 +56,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NodeExtensions.DbCommands.Contracts\NodeExtensions.DbCommands.Contracts.csproj">
+      <Project>{DBA73E85-12D7-432C-85F5-EE7824A41E75}</Project>
+      <Name>NodeExtensions.DbCommands.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

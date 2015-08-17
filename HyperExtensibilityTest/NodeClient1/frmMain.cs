@@ -19,7 +19,7 @@ namespace NodeClient1
             var response = nodeService1.ProcessMessage(
                 new HyperNodeMessageRequest("NodeClient1")
                 {
-                    CommandName = "DbUpdateCommand"
+                    CommandName = "UpdateDatabase"
                 }
             );
 
