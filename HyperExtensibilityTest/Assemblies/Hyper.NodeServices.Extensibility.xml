@@ -4,81 +4,6 @@
         <name>Hyper.NodeServices.Extensibility</name>
     </assembly>
     <members>
-        <member name="T:Hyper.NodeServices.Extensibility.CommandModules.CommandRequestString">
-            <summary>
-            Wraps a request string to pass to an <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandModule"/>. This class cannot be inherited.
-            </summary>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.CommandRequestString.#ctor(System.String)">
-            <summary>
-            Initializes an instance of <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.CommandRequestString"/> using the specified <paramref name="requestString"/>.
-            </summary>
-            <param name="requestString">The request string to wrap.</param>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.CommandRequestString.ToString">
-            <summary>
-            Returns the value of the <see cref="P:Hyper.NodeServices.Extensibility.CommandModules.CommandRequestString.RequestString"/> property.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Hyper.NodeServices.Extensibility.CommandModules.CommandRequestString.RequestString">
-            <summary>
-            The request string to pass to the <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandModule"/>.
-            </summary>
-        </member>
-        <member name="T:Hyper.NodeServices.Extensibility.CommandModules.CommandResponse">
-            <summary>
-            Wraps a bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
-            This class is the default <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> type for all <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandModule"/> implementations if no other
-            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> is specified.
-            </summary>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.CommandResponse.#ctor(Hyper.NodeServices.Contracts.MessageProcessStatusFlags)">
-            <summary>
-            Initializes an instance of <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.CommandResponse"/> with the specified <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/>.
-            </summary>
-            <param name="statusFlags">A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.</param>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.CommandResponse.ToString">
-            <summary>
-            Calls the <see cref="T:System.Enum"/>.<see cref="M:System.Enum.ToString"/> method on the <see cref="P:Hyper.NodeServices.Extensibility.CommandModules.CommandResponse.ProcessStatusFlags"/> property and returns the results.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Hyper.NodeServices.Extensibility.CommandModules.CommandResponse.ProcessStatusFlags">
-            <summary>
-            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
-            </summary>
-        </member>
-        <member name="T:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString">
-            <summary>
-            Wraps a response string from an <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandModule"/>. This class cannot be inherited.
-            </summary>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString.#ctor(Hyper.NodeServices.Contracts.MessageProcessStatusFlags)">
-            <summary>
-            Initializes an instance of <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString"/> with the specified <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/>.
-            </summary>
-            <param name="statusFlags">A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.</param>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString.#ctor(Hyper.NodeServices.Contracts.MessageProcessStatusFlags,System.String)">
-            <summary>
-            Initializes an instance of <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString"/> with the specified <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> and <paramref name="responseString"/>.
-            </summary>
-            <param name="statusFlags">A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.</param>
-            <param name="responseString">The response string to wrap.</param>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString.ToString">
-            <summary>
-            Returns the value of the <see cref="P:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString.ResponseString"/> property.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString.ResponseString">
-            <summary>
-            The response string from the <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandModule"/>.
-            </summary>
-        </member>
         <member name="T:Hyper.NodeServices.Extensibility.Exceptions.InvalidCommandRequestTypeException">
             <summary>
             Thrown when an <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandModule"/> receives an invalid request.
@@ -92,7 +17,7 @@
         <member name="M:Hyper.NodeServices.Extensibility.Exceptions.InvalidCommandRequestTypeException.#ctor(System.Type,System.Type)">
             <summary>
             Initializes a new instance of the <see cref="T:Hyper.NodeServices.Extensibility.Exceptions.InvalidCommandRequestTypeException"/> class with a default error message
-            describing a type conversion error between the expected <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> type and the actual type.
+            describing a type conversion error between the expected <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type and the actual type.
             </summary>
             <param name="expectedType">The <see cref="T:System.Type"/> expected by the <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandModule"/>.</param>
             <param name="actualType">The <see cref="T:System.Type"/> actually received by the <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandModule"/>.</param>
@@ -254,23 +179,23 @@
         </member>
         <member name="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandRequestSerializerFactory">
             <summary>
-            Defines a method to create instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer"/>.
+            Defines a method to create instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequestSerializer"/>.
             </summary>
         </member>
         <member name="M:Hyper.NodeServices.Extensibility.CommandModules.ICommandRequestSerializerFactory.Create">
             <summary>
-            Returns an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer"/>.
+            Returns an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequestSerializer"/>.
             </summary>
             <returns></returns>
         </member>
         <member name="T:Hyper.NodeServices.Extensibility.CommandModules.ICommandResponseSerializerFactory">
             <summary>
-            Defines a method to create instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer"/>.
+            Defines a method to create instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponseSerializer"/>.
             </summary>
         </member>
         <member name="M:Hyper.NodeServices.Extensibility.CommandModules.ICommandResponseSerializerFactory.Create">
             <summary>
-            Returns an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer"/>.
+            Returns an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponseSerializer"/>.
             </summary>
             <returns></returns>
         </member>
@@ -418,51 +343,6 @@
             Creates a Task ID using the specified <see cref="T:Hyper.NodeServices.Extensibility.IHyperNodeMessageContext"/> object. This method must be overridden in a derived class.
             </summary>
             <param name="context">The <see cref="T:Hyper.NodeServices.Extensibility.IHyperNodeMessageContext"/> to use.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Extensibility.CommandModules.PassThroughSerializer">
-            <summary>
-            Passes strings back and forth without performing any serialization. This is the default implementation for both the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer"/> interfaces.
-            </summary>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.PassThroughSerializer.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandRequest)">
-            <summary>
-            Returns the result of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.<see cref="M:System.Object.ToString"/> method.
-            </summary>
-            <param name="request">The <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object to serialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.PassThroughSerializer.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandResponse)">
-            <summary>
-            Returns the result of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.<see cref="M:System.Object.ToString"/> method.
-            </summary>
-            <param name="response">The <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object to serialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.PassThroughSerializer.Hyper#NodeServices#Contracts#Extensibility#ICommandRequestSerializer#Deserialize(System.String)">
-            <summary>
-            Returns a <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.CommandRequestString"/> containing the specified <paramref name="requestString"/>.
-            </summary>
-            <param name="requestString">The request string to wrap.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.PassThroughSerializer.Hyper#NodeServices#Contracts#Extensibility#ICommandResponseSerializer#Deserialize(System.String)">
-            <summary>
-            Returns a <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString"/> containing the specified <paramref name="responseString"/>.
-            </summary>
-            <param name="responseString">The response string to wrap.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.PassThroughSerializer.GetRequestType">
-            <summary>
-            The expected <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> type for a <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.PassThroughSerializer"/> is <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.CommandRequestString"/>.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Extensibility.CommandModules.PassThroughSerializer.GetResponseType">
-            <summary>
-            The expected <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> type for a <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.PassThroughSerializer"/> is <see cref="T:Hyper.NodeServices.Extensibility.CommandModules.CommandResponseString"/>.
-            </summary>
             <returns></returns>
         </member>
     </members>

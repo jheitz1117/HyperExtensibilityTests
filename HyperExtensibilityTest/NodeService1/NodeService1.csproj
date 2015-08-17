@@ -32,22 +32,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hyper.ActivityTracking">
-      <HintPath>..\Assemblies\Hyper.ActivityTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="Hyper.Extensibility">
+    <Reference Include="Hyper.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Hyper.Extensibility.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices">
+    <Reference Include="Hyper.NodeServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Hyper.NodeServices.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Client">
-      <HintPath>..\Assemblies\Hyper.NodeServices.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Hyper.NodeServices.Contracts">
+    <Reference Include="Hyper.NodeServices.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Extensibility">
+    <Reference Include="Hyper.NodeServices.Contracts.Extensibility">
+      <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
+    </Reference>
+    <Reference Include="Hyper.NodeServices.Contracts.SystemCommands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.SystemCommands.dll</HintPath>
+    </Reference>
+    <Reference Include="Hyper.NodeServices.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Hyper.NodeServices.Extensibility.dll</HintPath>
     </Reference>
     <Reference Include="Hyper.WcfHosting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -76,7 +81,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandModules\CheckSqlConnectionStringCommand.cs" />
+    <Compile Include="CommandModules\NodeService1SpecificCommand.cs" />
+    <Compile Include="NumericTaskIdProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,9 +91,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NodeExtensions.Shared\NodeExtensions.Shared.csproj">
-      <Project>{2bc87e0a-3939-4512-8e23-87fe1e908fa7}</Project>
-      <Name>NodeExtensions.Shared</Name>
+    <ProjectReference Include="..\NodeExtensions.DbCommands\NodeExtensions.DbCommands.csproj">
+      <Project>{905afd06-9764-4600-846c-ffe37b84e6d4}</Project>
+      <Name>NodeExtensions.DbCommands</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

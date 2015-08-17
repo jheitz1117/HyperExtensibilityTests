@@ -23,7 +23,7 @@ namespace NodeService1
         static void Main()
         {
             // Can follow the hosting attempts for tutorial on how to self-host
-            HostingAttempt4();
+            HostingAttempt5();
             
             // TODO: Need to test documentation for Hyper.NodeServices namespace. This will be a doosey.
             // TODO: Need to test extensibility for Hyper.NodeServices namespace.

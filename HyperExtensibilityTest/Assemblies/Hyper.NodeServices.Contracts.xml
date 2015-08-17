@@ -4,72 +4,10 @@
         <name>Hyper.NodeServices.Contracts</name>
     </assembly>
     <members>
-        <member name="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest">
+        <member name="T:Hyper.NodeServices.Contracts.HyperNodeActionReasonType">
             <summary>
-            Marks a class as a request object for a custom command module. Classes implementing this interface can be serialized
-            and deserialized using an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer"/>.
+            The reasons why the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> chose to take the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeActionType"/> specified in the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/>.
             </summary>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer">
-            <summary>
-            Provides methods to serialize and deserialize <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> objects.
-            </summary>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandRequest)">
-            <summary>
-            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object into a string.
-            </summary>
-            <param name="request">The <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object to serialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer.Deserialize(System.String)">
-            <summary>
-            Deserializes the specified <paramref name="requestString"/> and returns an <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object.
-            </summary>
-            <param name="requestString">The string containing the object data to deserialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer.GetRequestType">
-            <summary>
-            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse">
-            <summary>
-            Defines a class that is returned from a custom command module. Classes implementing this interface can be serialized
-            and deserialized using an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer"/>.
-            </summary>
-        </member>
-        <member name="P:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse.ProcessStatusFlags">
-            <summary>
-            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
-            </summary>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer">
-            <summary>
-            Provides methods to serialize and deserialize <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> objects.
-            </summary>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandResponse)">
-            <summary>
-            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object into a string.
-            </summary>
-            <param name="response">The <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object to serialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer.Deserialize(System.String)">
-            <summary>
-            Deserializes the specified <paramref name="responseString"/> and returns an <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object.
-            </summary>
-            <param name="responseString">The string containing the object data to deserialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer.GetResponseType">
-            <summary>
-            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object.
-            </summary>
-            <returns></returns>
         </member>
         <member name="F:Hyper.NodeServices.Contracts.HyperNodeActionReasonType.Unknown">
             <summary>
@@ -111,6 +49,11 @@
             Indicates that the Cancel() method has been called on the receiving <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> and no new tasks are being started.
             </summary>
         </member>
+        <member name="T:Hyper.NodeServices.Contracts.HyperNodeActionType">
+            <summary>
+            Actions that a <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> can take when it receives a <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>.
+            </summary>
+        </member>
         <member name="F:Hyper.NodeServices.Contracts.HyperNodeActionType.None">
             <summary>
             Indicates that the receiving <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> was completely unable to recognize, forward, or otherwise process the message in any capacity.
@@ -131,19 +74,280 @@
             Indicates that the receiving <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> rejected the message because the message would have caused the service to enter an invalid state.
             </summary>
         </member>
-        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeCommandType.Unknown">
+        <member name="T:Hyper.NodeServices.Contracts.HyperNodeActivityItem">
             <summary>
-            Indicates that the command is of unknown origin.
+            Describes an activity event reported by a <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
             </summary>
         </member>
-        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeCommandType.SystemCommand">
+        <member name="M:Hyper.NodeServices.Contracts.HyperNodeActivityItem.#ctor">
             <summary>
-            Indicates that the command is a built-in system command.
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.HyperNodeActivityItem"/>.
             </summary>
         </member>
-        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeCommandType.CustomCommand">
+        <member name="M:Hyper.NodeServices.Contracts.HyperNodeActivityItem.#ctor(System.String)">
             <summary>
-            Indicates that the command is a user-defined command.
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.HyperNodeActivityItem"/> using the specified agent.
+            </summary>
+            <param name="agent">The agent creating this instance.</param>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.EventDateTime">
+            <summary>
+            The date and time the event happened.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.Agent">
+            <summary>
+            The name of the agent reporting the activity event.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.Elapsed">
+            <summary>
+            The amount of time that has elapsed since the first <see cref="T:Hyper.NodeServices.Contracts.HyperNodeActivityItem"/> was tracked for the task.
+            This value may be null unless diagnostics are enabled.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.EventDescription">
+            <summary>
+            A description of the activity event.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.EventDetail">
+            <summary>
+            A longer, more detailed description of the activity event.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.ProgressPart">
+            <summary>
+            A numeric value representing the progress of a command module. This value may be used in conjunction
+            with the <see cref="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.ProgressTotal"/> property to obtain a percentile.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.ProgressTotal">
+            <summary>
+            A numeric value representing the progress total of a command module. This value may be used in conjunction
+            with the <see cref="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.ProgressPart"/> property to obtain a percentile.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.ProgressPercentage">
+            <summary>
+            Calculates the progress of the task as a percentile by dividing the <see cref="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.ProgressPart"/> property by the <see cref="P:Hyper.NodeServices.Contracts.HyperNodeActivityItem.ProgressTotal"/> property.
+            This operation is arithmetically safe.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest">
+            <summary>
+            The primary request object used by <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> instances.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> using the specified agent.
+            </summary>
+            <param name="createdByAgentName">The agent creating this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.IsProcessOptionSet(Hyper.NodeServices.Contracts.MessageProcessOptionFlags)">
+            <summary>
+            Checks whether the specified <see cref="T:Hyper.NodeServices.Contracts.MessageProcessOptionFlags"/> option flag was set.
+            </summary>
+            <param name="optionFlag">The <see cref="T:Hyper.NodeServices.Contracts.MessageProcessOptionFlags"/> value to check for.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.CreatedByAgentName">
+            <summary>
+            The name of the agent that created this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.CreationDateTime">
+            <summary>
+            The date and time this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> was created.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.MessageLifeSpan">
+            <summary>
+            Specifies how long this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> should live before it expires.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.IntendedRecipientNodeNames">
+            <summary>
+            A list of <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> names to which this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> is intended.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.SeenByNodeNames">
+            <summary>
+            A list of <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> names which have already seen this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.CommandName">
+            <summary>
+            The name of the command to execute.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.CommandRequestString">
+            <summary>
+            A string containing the request parameters for the command to execute.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.ForwardingPath">
+            <summary>
+            Contains the network path this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> should follow in order to arrive at all of the intended recipients.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.ForwardingTimeout">
+            <summary>
+            The amount of time to wait before any <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> gives up on receiving a response from a child node.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.ProcessOptionFlags">
+            <summary>
+            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessOptionFlags"/> values indicating how this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> should be processed.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.ReturnTaskTrace">
+            <summary>
+            Indicates whether the <see cref="F:Hyper.NodeServices.Contracts.MessageProcessOptionFlags.ReturnTaskTrace"/> option flag was set.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.RunConcurrently">
+            <summary>
+            Indicates whether the <see cref="F:Hyper.NodeServices.Contracts.MessageProcessOptionFlags.RunConcurrently"/> option flag was set.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.CacheTaskProgress">
+            <summary>
+            Indicates whether the <see cref="F:Hyper.NodeServices.Contracts.MessageProcessOptionFlags.CacheTaskProgress"/> option flag was set.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageRequest.ExpirationDateTime">
+            <summary>
+            Calculates date and time at which this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> expires.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse">
+            <summary>
+            The primary response object used by <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> instances.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/> using the specified responding node name.
+            </summary>
+            <param name="respondingNodeName">The name of the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> that created this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/>.</param>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.TaskId">
+            <summary>
+            The ID of the task started as a result of the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>. This value
+            may be null or white space if no task could be started.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.RespondingNodeName">
+            <summary>
+            The name of the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> that sent this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.TotalRunTime">
+            <summary>
+            If the task completed, contains the total run time of the task.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.NodeAction">
+            <summary>
+            The <see cref="T:Hyper.NodeServices.Contracts.HyperNodeActionType"/> taken by the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> in response to the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.NodeActionReason">
+            <summary>
+            Indicates why the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> chose to take the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeActionType"/> reported in the <see cref="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.NodeAction"/> property.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.ProcessStatusFlags">
+            <summary>
+            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.TaskTrace">
+            <summary>
+            If the <see cref="F:Hyper.NodeServices.Contracts.MessageProcessOptionFlags.ReturnTaskTrace"/> option flag was specified in the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>, contains a list of
+            <see cref="T:Hyper.NodeServices.Contracts.HyperNodeActivityItem"/> objects tracing the progress of the task up until the point at which this <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/> was
+            returned. If the <see cref="F:Hyper.NodeServices.Contracts.MessageProcessOptionFlags.RunConcurrently"/> option flag was specified in the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>, the task
+            trace will likely be incomplete because the main thread could have completed before the task was finished.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.ChildResponses">
+            <summary>
+            Contains a list of <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/> objects returned by child nodes up until the point at which this
+            <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/> was returned. If the <see cref="F:Hyper.NodeServices.Contracts.MessageProcessOptionFlags.RunConcurrently"/> option
+            flag was specified in the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>, the list will likely be incomplete because the main thread
+            could have completed before the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/> could be forwarded to all child nodes.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeMessageResponse.CommandResponseString">
+            <summary>
+            Contains the response string from the command that was executed.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.HyperNodePath">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.IPath`1"/> for HyperNode network path trees.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.IPath`1">
+            <summary>
+            Provides methods to traverse a path tree composed of <see cref="T:Hyper.NodeServices.Contracts.IVertex"/> objects.
+            </summary>
+            <typeparam name="TVertex"></typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.IPath`1.GetChildren(System.String)">
+            <summary>
+            Gets the immediate children of the <see cref="T:Hyper.NodeServices.Contracts.IVertex"/> with the specified key.
+            </summary>
+            <param name="parentKey">The key of the parent for which to find child nodes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.HyperNodePath.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.HyperNodePath"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.HyperNodePath.GetChildren(System.String)">
+            <summary>
+            Gets the immediate children of the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> with the specified name.
+            </summary>
+            <param name="parentKey">The name of the parent for which to find child nodes.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodePath.PathTree">
+            <summary>
+            A dictionary containing the full network path for the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.HyperNodeVertex">
+            <summary>
+            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.IVertex"/> for HyperNode network paths.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.IVertex">
+            <summary>
+            Defines a node in a <see cref="T:Hyper.NodeServices.Contracts.IPath`1"/> tree.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.IVertex.Key">
+            <summary>
+            The unique key of the <see cref="T:Hyper.NodeServices.Contracts.IVertex"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.HyperNodeVertex.Key">
+            <summary>
+            The name of the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> represented by this instance.
             </summary>
         </member>
         <member name="T:Hyper.NodeServices.Contracts.IHyperNodeService">
@@ -160,7 +364,7 @@
         </member>
         <member name="T:Hyper.NodeServices.Contracts.MessageProcessOptionFlags">
             <summary>
-            Flags that indicate what happened while a command was running in a <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>
+            Flags to indicate which processing options to use when the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> processes the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageRequest"/>.
             </summary>
         </member>
         <member name="F:Hyper.NodeServices.Contracts.MessageProcessOptionFlags.None">
@@ -181,6 +385,11 @@
         <member name="F:Hyper.NodeServices.Contracts.MessageProcessOptionFlags.CacheTaskProgress">
             <summary>
             Specifies that the recipient node should cache task progress for this message.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags">
+            <summary>
+            Flags that indicate what happened while a command was running in a <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
             </summary>
         </member>
         <member name="F:Hyper.NodeServices.Contracts.MessageProcessStatusFlags.None">
@@ -222,309 +431,6 @@
             <summary>
             Indicates that the ICommandRequest implementation was invalid.
             </summary>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractCommandJsonSerializer`2">
-            <summary>
-            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2"/> that can serialize instances
-            of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> using a <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/>.
-            This class cannot be inherited.
-            </summary>
-            <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
-            <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2">
-            <summary>
-            Abstract implementation combining <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequestSerializer"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponseSerializer"/>
-            to serialize instances of both <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.
-            </summary>
-            <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
-            <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.CreateRequestSerializer">
-            <summary>
-            When overridden in a derived class, creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1"/> to use for serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.CreateResponseSerializer">
-            <summary>
-            When overridden in a derived class, creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1"/> to use for serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandRequest)">
-            <summary>
-            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> into a string.
-            </summary>
-            <param name="request">The <typeparamref name="TRequest"/> instance to serialize. This instance must implement <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandResponse)">
-            <summary>
-            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> into a string.
-            </summary>
-            <param name="response">The <typeparamref name="TResponse"/> instance to serialize. This instance must implement <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.Hyper#NodeServices#Contracts#Extensibility#ICommandRequestSerializer#Deserialize(System.String)">
-            <summary>
-            Deserializes the specified <paramref name="requestString"/> into an object of type <typeparamref name="TRequest" />.
-            </summary>
-            <param name="requestString">The request string to deserialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.Hyper#NodeServices#Contracts#Extensibility#ICommandResponseSerializer#Deserialize(System.String)">
-            <summary>
-            Deserializes the specified <paramref name="responseString"/> into an object of type <typeparamref name="TResponse" />.
-            </summary>
-            <param name="responseString">The response string to deserialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.GetRequestType">
-            <summary>
-            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2.GetResponseType">
-            <summary>
-            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractCommandJsonSerializer`2.CreateRequestSerializer">
-            <summary>
-            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.DataContractRequestJsonSerializer`1"/> to use for request serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractCommandJsonSerializer`2.CreateResponseSerializer">
-            <summary>
-            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.DataContractResponseJsonSerializer`1"/> to use for response serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractCommandSerializer`2">
-            <summary>
-            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2"/> that can serialize instances
-            of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> using a <see cref="T:System.Runtime.Serialization.DataContractSerializer"/>.
-            This class cannot be inherited.
-            </summary>
-            <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
-            <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractCommandSerializer`2.CreateRequestSerializer">
-            <summary>
-            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.DataContractRequestSerializer`1"/> to use for request serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractCommandSerializer`2.CreateResponseSerializer">
-            <summary>
-            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.DataContractResponseSerializer`1"/> to use for response serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractRequestJsonSerializer`1">
-            <summary>
-            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>
-            using a <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/>. This class cannot be inherited.
-            </summary>
-            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1">
-            <summary>
-            Abstract implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.
-            </summary>
-            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1">
-            <summary>
-            Wraps an instance of <see cref="T:System.Runtime.Serialization.XmlObjectSerializer"/> and simplifies the task of serializing to and deserializing from string data.
-            </summary>
-            <typeparam name="T">The type of object to be serialized or deserialized.</typeparam>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.#ctor">
-            <summary>
-            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1"/> using <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
-            instances created from <see cref="T:System.Text.Encoding"/>.<see cref="P:System.Text.Encoding.Default"/>.
-            </summary>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.#ctor(Hyper.Extensibility.IO.IStringTransform,Hyper.Extensibility.IO.IStringTransform)">
-            <summary>
-            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
-            instances for serialization and deserialization, respectively.
-            </summary>
-            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming the serialized bytes into a string.</param>
-            <param name="deserializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming a string into bytes to be deserialized.</param>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.Serialize(`0)">
-            <summary>
-            Serializes the specified object into a string.
-            </summary>
-            <param name="target">The <typeparamref name="T"/> instance to serialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.Deserialize(System.String)">
-            <summary>
-            Deserializes the specified <paramref name="inputString"/> into an object of type <typeparamref name="T" />.
-            </summary>
-            <param name="inputString">The string to deserialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.CreateSerializer">
-            <summary>
-            When overridden in a derived class, creates an instance of <see cref="T:System.Runtime.Serialization.XmlObjectSerializer"/> to use for serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.SerializationTransform">
-            <summary>
-            The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming the serialized bytes into a string.
-            </summary>
-        </member>
-        <member name="P:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1.DeserializationTransform">
-            <summary>
-            The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming a string into bytes to be deserialized.
-            </summary>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandRequest)">
-            <summary>
-            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> into a string.
-            </summary>
-            <param name="request">The <typeparamref name="T"/> instance to serialize. This instance must implement <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1.Hyper#NodeServices#Contracts#Extensibility#ICommandRequestSerializer#Deserialize(System.String)">
-            <summary>
-            Deserializes the specified <paramref name="requestString"/> into an object of type <typeparamref name="T" />.
-            </summary>
-            <param name="requestString">The string to deserialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1.GetRequestType">
-            <summary>
-            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> object.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractRequestJsonSerializer`1.CreateSerializer">
-            <summary>
-            Creates an instance of <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/> to use for serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractRequestSerializer`1">
-            <summary>
-            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>
-            using a <see cref="T:System.Runtime.Serialization.DataContractSerializer"/>. This class cannot be inherited.
-            </summary>
-            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractRequestSerializer`1.CreateSerializer">
-            <summary>
-            Creates an instance of <see cref="T:System.Runtime.Serialization.DataContractSerializer"/> to use for serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractResponseJsonSerializer`1">
-            <summary>
-            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>
-            using a <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/>. This class cannot be inherited.
-            </summary>
-            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1">
-            <summary>
-            Abstract implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectSerializerWrapper`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.
-            </summary>
-            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1.Serialize(Hyper.NodeServices.Contracts.Extensibility.ICommandResponse)">
-            <summary>
-            Serializes the specified <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> into a string.
-            </summary>
-            <param name="response">The <typeparamref name="T"/> instance to serialize. This instance must implement <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1.Hyper#NodeServices#Contracts#Extensibility#ICommandResponseSerializer#Deserialize(System.String)">
-            <summary>
-            Deserializes the specified <paramref name="responseString"/> into an object of type <typeparamref name="T" />.
-            </summary>
-            <param name="responseString">The string to deserialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1.GetResponseType">
-            <summary>
-            Gets the expected <see cref="T:System.Type"/> of the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> object.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractResponseJsonSerializer`1.CreateSerializer">
-            <summary>
-            Creates an instance of <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/> to use for serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.DataContractResponseSerializer`1">
-            <summary>
-            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>
-            using a <see cref="T:System.Runtime.Serialization.DataContractSerializer"/>. This class cannot be inherited.
-            </summary>
-            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.DataContractResponseSerializer`1.CreateSerializer">
-            <summary>
-            Creates an instance of <see cref="T:System.Runtime.Serialization.DataContractSerializer"/> to use for serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractCommandSerializer`2">
-            <summary>
-            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectCommandSerializer`2"/> that can serialize instances
-            of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/> and <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/> using a <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/>.
-            This class cannot be inherited.
-            </summary>
-            <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
-            <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.NetDataContractCommandSerializer`2.CreateRequestSerializer">
-            <summary>
-            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractRequestSerializer`1"/> to use for request serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.NetDataContractCommandSerializer`2.CreateResponseSerializer">
-            <summary>
-            Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractResponseSerializer`1"/> to use for response serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractRequestSerializer`1">
-            <summary>
-            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectRequestSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>
-            using a <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/>. This class cannot be inherited.
-            </summary>
-            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandRequest"/>.</typeparam>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.NetDataContractRequestSerializer`1.CreateSerializer">
-            <summary>
-            Creates an instance of <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/> to use for serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Hyper.NodeServices.Contracts.Serializers.NetDataContractResponseSerializer`1">
-            <summary>
-            Concrete implementation of <see cref="T:Hyper.NodeServices.Contracts.Serializers.XmlObjectResponseSerializer`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>
-            using a <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/>. This class cannot be inherited.
-            </summary>
-            <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.ICommandResponse"/>.</typeparam>
-        </member>
-        <member name="M:Hyper.NodeServices.Contracts.Serializers.NetDataContractResponseSerializer`1.CreateSerializer">
-            <summary>
-            Creates an instance of <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/> to use for serialization.
-            </summary>
-            <returns></returns>
         </member>
     </members>
 </doc>

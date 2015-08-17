@@ -83,12 +83,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NodeExtensions.Shared\NodeExtensions.Shared.csproj">
-      <Project>{2bc87e0a-3939-4512-8e23-87fe1e908fa7}</Project>
-      <Name>NodeExtensions.Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

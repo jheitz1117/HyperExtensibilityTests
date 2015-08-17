@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hyper.NodeServices.Contracts.SystemCommands</name>
+    </assembly>
+    <members>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName">
+            <summary>
+            Enumerates the names of built-in system command modules.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.Discover">
+            <summary>
+            Retrieves the names of all <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> instances that are descendants of the intended recipient.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: No request type is required for this command module.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.DiscoverResponse"/> containing the descendants of the intended recipient.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.GetCachedTaskProgressInfo">
+            <summary>
+            Retrieves cached task progress information for the task with the ID specified in the command request string.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandRequestString"/> containing the ID of the task for which to retrieve cached progress info.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.GetCachedTaskProgressInfoResponse"/> containing the cached task progress info if the cache is enabled. Otherwise, returns a warning indicating that the cache is disabled.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.GetChildNodes">
+            <summary>
+            Retrieves the names of all <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> instances that are immediate children of the intended recipient.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: No request type is required for this command module.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.GetChildNodesResponse"/> containing the immediate children of the intended recipient.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.GetNodeStatus">
+            <summary>
+            Retrieves the status of the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: No request type is required for this command module.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse"/> containing a status summary of the intended recipient, including
+            lists of active tasks, commands, and custom activity monitors as well as the current settings for the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.Echo">
+            <summary>
+            Echoes the request string back to the caller. This command is useful for checking <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> connectivity and
+            command request/response passthrough.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandRequestString"/> containing the string to echo back to the caller.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandResponseString"/> containing a slightly modified version of the request string.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.EnableCommand">
+            <summary>
+            Enables or disables the command module with the name specified in the request object.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: An <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.EnableCommandModuleRequest"/> containing the command name and whether to enable or disable it.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandResponse"/> indicating success or failure.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.EnableActivityMonitor">
+            <summary>
+            Enables or disables the custom activity monitor with the name specified in the request object.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: An <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.EnableActivityMonitorRequest"/> containing the monitor name and whether to enable or disable it.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandResponse"/> indicating success or failure.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.RenameActivityMonitor">
+            <summary>
+            Renames the custom activity monitor with the name specified in the request object.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: A <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.RenameActivityMonitorRequest"/> containing the old name and the new name of the custom activity monitor.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandResponse"/> indicating success or failure.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.EnableTaskProgressCache">
+            <summary>
+            Enables or disables the task progress cache.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: An <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.EnableTaskProgressCacheRequest"/> indicating whether or enable or disable the task progress cache.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandResponse"/> indicating success or failure.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.EnableDiagnostics">
+            <summary>
+            Enables or disables diagnostics.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: An <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.EnableDiagnosticsRequest"/> indicating whether or enable or disable diagnostics.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandResponse"/> indicating success or failure.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.CancelTask">
+            <summary>
+            Cancels the task with the ID specified in the command request string.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandRequestString"/> containing the ID of the task to cancel.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.CommandResponse"/> indicating success or failure.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.SetTaskProgressCacheDuration">
+            <summary>
+            Sets the sliding expiration time for items in the task progress cache.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> type: A <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.SetTaskProgressCacheDurationRequest"/> specifying how long the duration should be.
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> type: A <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.SetTaskProgressCacheDurationResponse"/> indicating success or failure. A flag is returned indicating whether the cache is enabled.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.IsSystemCommand(System.String)">
+            <summary>
+            Tests whether the specified command name is a system command.
+            </summary>
+            <param name="commandName">The command name to check.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.ActivityMonitorStatus">
+            <summary>
+            Describes the status of a custom activity monitor.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.ActivityMonitorStatus.Name">
+            <summary>
+            The name of the custom activity monitor.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.ActivityMonitorStatus.Enabled">
+            <summary>
+            Indicates whether the custom activity monitor is enabled or disabled.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.CommandStatus">
+            <summary>
+            Describes the status of a command module.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.CommandStatus.CommandName">
+            <summary>
+            The command name of the module.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.CommandStatus.Enabled">
+            <summary>
+            Indicates whether the command module is enabled or disabled.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.CommandStatus.CommandType">
+            <summary>
+            Indicates whether the command module is a <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeCommandType.SystemCommand"/> or a <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeCommandType.CustomCommand"/>.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.DiscoverResponse">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.Discover"/> system command.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.SystemCommands.DiscoverResponse.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.DiscoverResponse"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.DiscoverResponse.ProcessStatusFlags">
+            <summary>
+            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.DiscoverResponse.ChildNodes">
+            <summary>
+            A dictionary containing the descendants of the <see cref="!:IHyperNodeService."/>
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.EnableActivityMonitorRequest">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.EnableActivityMonitor"/> system command.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.EnableActivityMonitorRequest.ActivityMonitorName">
+            <summary>
+            The name of the custom activity monitor to enable or disable.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.EnableActivityMonitorRequest.Enable">
+            <summary>
+            Indicates whether to enable or disable the custom activity monitor with the specified name.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.EnableCommandModuleRequest">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.EnableCommand"/> system command.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.EnableCommandModuleRequest.CommandName">
+            <summary>
+            The name of the command to enable or disable.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.EnableCommandModuleRequest.Enable">
+            <summary>
+            Indicates whether to enable or disable the command with the specified command name.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.EnableDiagnosticsRequest">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.EnableDiagnostics"/> system command.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.EnableDiagnosticsRequest.Enable">
+            <summary>
+            Indicates whether to enable or disable diagnostics.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.EnableTaskProgressCacheRequest">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.EnableTaskProgressCache"/> system command.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.EnableTaskProgressCacheRequest.Enable">
+            <summary>
+            Indicates whether to enable or disable the task progress cache.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.GetCachedTaskProgressInfoResponse">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.GetCachedTaskProgressInfo"/> system command.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetCachedTaskProgressInfoResponse.ProcessStatusFlags">
+            <summary>
+            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetCachedTaskProgressInfoResponse.TaskProgressCacheEnabled">
+            <summary>
+            Indicates whether the task progress cache is enabled for the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetCachedTaskProgressInfoResponse.TaskProgressInfo">
+            <summary>
+            If the cache is enabled, contains the progress of the task with the requested ID.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.GetChildNodesResponse">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.GetChildNodes"/> system command.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.SystemCommands.GetChildNodesResponse.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.GetChildNodesResponse"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetChildNodesResponse.ProcessStatusFlags">
+            <summary>
+            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetChildNodesResponse.ChildNodes">
+            <summary>
+            A List of child nodes for the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.GetNodeStatus"/> system command.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse.ProcessStatusFlags">
+            <summary>
+            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse.TaskProgressCacheDuration">
+            <summary>
+            The sliding expiration of items in the task progress cache.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse.TaskProgressCacheEnabled">
+            <summary>
+            Indicates whether the task progress cache is enabled or disabled.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse.DiagnosticsEnabled">
+            <summary>
+            Indicates whether diagnostics are enabled or disabled.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse.MaxConcurrentTasks">
+            <summary>
+            The maximum number of tasks that are allowed to run concurrently.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse.Commands">
+            <summary>
+            A list of <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.CommandStatus"/> objects reporting the status of each command module in the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse.ActivityMonitors">
+            <summary>
+            A list of <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.ActivityMonitorStatus"/> objects reporting the status of each custom activity monitor in the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.GetNodeStatusResponse.LiveTasks">
+            <summary>
+            A list of <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.LiveTaskStatus"/> objects reporting the status of each live task in the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeCommandType">
+            <summary>
+            Command types for command modules.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeCommandType.Unknown">
+            <summary>
+            Indicates that the command is of unknown origin.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeCommandType.SystemCommand">
+            <summary>
+            Indicates that the command is a built-in system command.
+            </summary>
+        </member>
+        <member name="F:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeCommandType.CustomCommand">
+            <summary>
+            Indicates that the command is a user-defined command.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo">
+            <summary>
+            Describes progress information for a task.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo"/>.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.Activity">
+            <summary>
+            A list of <see cref="T:Hyper.NodeServices.Contracts.HyperNodeActivityItem"/> objects tracing the progress of the task.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.Response">
+            <summary>
+            If the task has completed, contains the <see cref="T:Hyper.NodeServices.Contracts.HyperNodeMessageResponse"/> of the task.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.ChildNodeTaskIds">
+            <summary>
+            If the message was forwarded to one or more child nodes, contains a list of all of the primary task IDs that have been reported to the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/> at the time of the request.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.IsComplete">
+            <summary>
+            Indicates whether the task has completed.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.ProgressPart">
+            <summary>
+            The latest partial progress value captured as of the time of the request.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.ProgressTotal">
+            <summary>
+            The latest total progress value captured as of the time of the request.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.ProgressPercentage">
+            <summary>
+            Calculates the progress of the task as a percentile by dividing the <see cref="P:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.ProgressPart"/> property by the <see cref="P:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo.ProgressTotal"/> property.
+            This operation is arithmetically safe.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.LiveTaskStatus">
+            <summary>
+            Describes the status of a task.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.LiveTaskStatus.TaskID">
+            <summary>
+            The ID of the task.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.LiveTaskStatus.CommandName">
+            <summary>
+            The name of the command which started the task.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.LiveTaskStatus.IsCancellationRequested">
+            <summary>
+            Indicates whether cancellation has been requested for the task.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.LiveTaskStatus.Elapsed">
+            <summary>
+            Indicates how long the task has been running.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.RenameActivityMonitorRequest">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.RenameActivityMonitor"/> system command.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.RenameActivityMonitorRequest.OldName">
+            <summary>
+            The name of the custom activity monitor to rename.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.RenameActivityMonitorRequest.NewName">
+            <summary>
+            The new name of the custom activity monitor.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.SetTaskProgressCacheDurationRequest">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.SetTaskProgressCacheDuration"/> system command.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.SetTaskProgressCacheDurationRequest.CacheDuration">
+            <summary>
+            The new sliding expiration to set for items in the task progress cache.
+            </summary>
+        </member>
+        <member name="T:Hyper.NodeServices.Contracts.SystemCommands.SetTaskProgressCacheDurationResponse">
+            <summary>
+            <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/> for the <see cref="F:Hyper.NodeServices.Contracts.SystemCommands.SystemCommandName.SetTaskProgressCacheDuration"/> system command.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.SetTaskProgressCacheDurationResponse.ProcessStatusFlags">
+            <summary>
+            A bitwise combination of <see cref="T:Hyper.NodeServices.Contracts.MessageProcessStatusFlags"/> values indicating what happened while the command was running.
+            </summary>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.SystemCommands.SetTaskProgressCacheDurationResponse.TaskProgressCacheEnabled">
+            <summary>
+            Indicates whether the task progress cache is enabled for the <see cref="T:Hyper.NodeServices.Contracts.IHyperNodeService"/>.
+            </summary>
+        </member>
+    </members>
+</doc>
