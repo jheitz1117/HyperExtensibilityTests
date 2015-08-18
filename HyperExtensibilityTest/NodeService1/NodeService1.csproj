@@ -32,9 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hyper.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\Hyper.Extensibility.dll</HintPath>
+    <Reference Include="Hyper.Core">
+      <HintPath>..\Assemblies\Hyper.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hyper.Core.Extensibility">
+      <HintPath>..\Assemblies\Hyper.Core.Extensibility.dll</HintPath>
     </Reference>
     <Reference Include="Hyper.NodeServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -44,20 +46,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Contracts.Extensibility">
-      <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
-    </Reference>
-    <Reference Include="Hyper.NodeServices.Contracts.SystemCommands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hyper.NodeServices.Contracts.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.SystemCommands.dll</HintPath>
+      <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
     </Reference>
     <Reference Include="Hyper.NodeServices.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Hyper.NodeServices.Extensibility.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.WcfHosting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\Hyper.WcfHosting.dll</HintPath>
+    <Reference Include="Hyper.NodeServices.SystemCommands.Contracts">
+      <HintPath>..\Assemblies\Hyper.NodeServices.SystemCommands.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

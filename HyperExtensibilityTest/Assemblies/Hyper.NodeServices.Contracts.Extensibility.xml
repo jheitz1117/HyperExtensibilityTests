@@ -163,16 +163,32 @@
             <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/>.</typeparam>
             <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/>.</typeparam>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectCommandSerializer`2.CreateRequestSerializer">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectCommandSerializer`2.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectCommandSerializer`2"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>
+            for requests and responses.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectCommandSerializer`2.#ctor(Hyper.Extensibility.IO.IStringTransform,Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectCommandSerializer`2"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
+            instances for requests and responses, respectively.
+            </summary>
+            <param name="requestSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming request data between string and byte representations.</param>
+            <param name="responseSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming response data between string and byte representations.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectCommandSerializer`2.CreateRequestSerializer(Hyper.Extensibility.IO.IStringTransform)">
             <summary>
             When overridden in a derived class, creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectRequestSerializer`1"/> to use for serialization.
             </summary>
+            <param name="requestSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when constructing the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectRequestSerializer`1"/></param>
             <returns></returns>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectCommandSerializer`2.CreateResponseSerializer">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectCommandSerializer`2.CreateResponseSerializer(Hyper.Extensibility.IO.IStringTransform)">
             <summary>
             When overridden in a derived class, creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectResponseSerializer`1"/> to use for serialization.
             </summary>
+            <param name="responseSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when constructing the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectResponseSerializer`1"/></param>
             <returns></returns>
         </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectCommandSerializer`2.Serialize(Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest)">
@@ -215,16 +231,32 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandJsonSerializer`2.CreateRequestSerializer">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandJsonSerializer`2.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandJsonSerializer`2"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>
+            for requests and responses.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandJsonSerializer`2.#ctor(Hyper.Extensibility.IO.IStringTransform,Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandJsonSerializer`2"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
+            instances for requests and responses, respectively.
+            </summary>
+            <param name="requestSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming request data between string and byte representations.</param>
+            <param name="responseSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming response data between string and byte representations.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandJsonSerializer`2.CreateRequestSerializer(Hyper.Extensibility.IO.IStringTransform)">
             <summary>
             Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestJsonSerializer`1"/> to use for request serialization.
             </summary>
+            <param name="requestSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when constructing the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestJsonSerializer`1"/></param>
             <returns></returns>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandJsonSerializer`2.CreateResponseSerializer">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandJsonSerializer`2.CreateResponseSerializer(Hyper.Extensibility.IO.IStringTransform)">
             <summary>
             Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseJsonSerializer`1"/> to use for response serialization.
             </summary>
+            <param name="responseSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when constructing the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseJsonSerializer`1"/></param>
             <returns></returns>
         </member>
         <member name="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandSerializer`2">
@@ -236,16 +268,32 @@
             <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/>.</typeparam>
             <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/>.</typeparam>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandSerializer`2.CreateRequestSerializer">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandSerializer`2.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandSerializer`2"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>
+            for requests and responses.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandSerializer`2.#ctor(Hyper.Extensibility.IO.IStringTransform,Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandSerializer`2"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
+            instances for requests and responses, respectively.
+            </summary>
+            <param name="requestSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming request data between string and byte representations.</param>
+            <param name="responseSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming response data between string and byte representations.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandSerializer`2.CreateRequestSerializer(Hyper.Extensibility.IO.IStringTransform)">
             <summary>
             Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestSerializer`1"/> to use for request serialization.
             </summary>
+            <param name="requestSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when constructing the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestSerializer`1"/></param>
             <returns></returns>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandSerializer`2.CreateResponseSerializer">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractCommandSerializer`2.CreateResponseSerializer(Hyper.Extensibility.IO.IStringTransform)">
             <summary>
             Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseSerializer`1"/> to use for response serialization.
             </summary>
+            <param name="responseSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when constructing the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseSerializer`1"/></param>
             <returns></returns>
         </member>
         <member name="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestJsonSerializer`1">
@@ -263,23 +311,66 @@
         </member>
         <member name="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1">
             <summary>
-            Wraps an instance of <see cref="T:System.Runtime.Serialization.XmlObjectSerializer"/> and simplifies the task of serializing to and deserializing from string data.
+            Abstract generic version of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper"/>
             </summary>
             <typeparam name="T">The type of object to be serialized or deserialized.</typeparam>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1.#ctor">
+        <member name="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper">
             <summary>
-            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1"/> using <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
-            instances created from <see cref="T:System.Text.Encoding"/>.<see cref="P:System.Text.Encoding.Default"/>.
+            Wraps an instance of <see cref="T:System.Runtime.Serialization.XmlObjectSerializer"/> and simplifies the task of serializing to and deserializing from string data.
             </summary>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1.#ctor(Hyper.Extensibility.IO.IStringTransform,Hyper.Extensibility.IO.IStringTransform)">
+        <member name="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform">
             <summary>
-            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
-            instances for serialization and deserialization, respectively.
+            The default implementation of <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use for serialization and deserialization is
+            created from <see cref="P:System.Text.Encoding.Default"/>.
             </summary>
-            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming the serialized bytes into a string.</param>
-            <param name="deserializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming a string into bytes to be deserialized.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.#ctor(Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.Serialize(System.Object)">
+            <summary>
+            Serializes the specified object into a string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.Deserialize(System.String)">
+            <summary>
+            Deserializes the specified <paramref name="inputString"/> into an object.
+            </summary>
+            <param name="inputString">The string to deserialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.CreateSerializer">
+            <summary>
+            When overridden in a derived class, creates an instance of <see cref="T:System.Runtime.Serialization.XmlObjectSerializer"/> to use for serialization.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.SerializationTransform">
+            <summary>
+            The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1.#ctor(Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
         </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1.Serialize(`0)">
             <summary>
@@ -295,21 +386,16 @@
             <param name="inputString">The string to deserialize.</param>
             <returns></returns>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1.CreateSerializer">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectRequestSerializer`1.#ctor">
             <summary>
-            When overridden in a derived class, creates an instance of <see cref="T:System.Runtime.Serialization.XmlObjectSerializer"/> to use for serialization.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1.SerializationTransform">
-            <summary>
-            The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming the serialized bytes into a string.
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectRequestSerializer`1"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
             </summary>
         </member>
-        <member name="P:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1.DeserializationTransform">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectRequestSerializer`1.#ctor(Hyper.Extensibility.IO.IStringTransform)">
             <summary>
-            The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming a string into bytes to be deserialized.
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectRequestSerializer`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
             </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
         </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectRequestSerializer`1.Serialize(Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest)">
             <summary>
@@ -331,6 +417,17 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestJsonSerializer`1.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestJsonSerializer`1"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestJsonSerializer`1.#ctor(Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestJsonSerializer`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
+        </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestJsonSerializer`1.CreateSerializer">
             <summary>
             Creates an instance of <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/> to use for serialization.
@@ -343,6 +440,17 @@
             using a <see cref="T:System.Runtime.Serialization.DataContractSerializer"/>. This class cannot be inherited.
             </summary>
             <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestSerializer`1.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestSerializer`1"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestSerializer`1.#ctor(Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestSerializer`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
         </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractRequestSerializer`1.CreateSerializer">
             <summary>
@@ -362,6 +470,17 @@
             Abstract implementation of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper`1"/> that can serialize instances of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/>.
             </summary>
             <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectResponseSerializer`1.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectResponseSerializer`1"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectResponseSerializer`1.#ctor(Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectResponseSerializer`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
         </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectResponseSerializer`1.Serialize(Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse)">
             <summary>
@@ -383,6 +502,17 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseJsonSerializer`1.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseJsonSerializer`1"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseJsonSerializer`1.#ctor(Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseJsonSerializer`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
+        </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseJsonSerializer`1.CreateSerializer">
             <summary>
             Creates an instance of <see cref="T:System.Runtime.Serialization.Json.DataContractJsonSerializer"/> to use for serialization.
@@ -395,6 +525,17 @@
             using a <see cref="T:System.Runtime.Serialization.DataContractSerializer"/>. This class cannot be inherited.
             </summary>
             <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseSerializer`1.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseSerializer`1"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseSerializer`1.#ctor(Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseSerializer`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
         </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.DataContractResponseSerializer`1.CreateSerializer">
             <summary>
@@ -411,16 +552,32 @@
             <typeparam name="TRequest">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/>.</typeparam>
             <typeparam name="TResponse">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/>.</typeparam>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractCommandSerializer`2.CreateRequestSerializer">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractCommandSerializer`2.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractCommandSerializer`2"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>
+            for requests and responses.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractCommandSerializer`2.#ctor(Hyper.Extensibility.IO.IStringTransform,Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractCommandSerializer`2"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/>
+            instances for requests and responses, respectively.
+            </summary>
+            <param name="requestSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming request data between string and byte representations.</param>
+            <param name="responseSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming response data between string and byte representations.</param>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractCommandSerializer`2.CreateRequestSerializer(Hyper.Extensibility.IO.IStringTransform)">
             <summary>
             Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractRequestSerializer`1"/> to use for request serialization.
             </summary>
+            <param name="requestSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when constructing the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractRequestSerializer`1"/></param>
             <returns></returns>
         </member>
-        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractCommandSerializer`2.CreateResponseSerializer">
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractCommandSerializer`2.CreateResponseSerializer(Hyper.Extensibility.IO.IStringTransform)">
             <summary>
             Creates an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractResponseSerializer`1"/> to use for response serialization.
             </summary>
+            <param name="responseSerializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when constructing the <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractResponseSerializer`1"/></param>
             <returns></returns>
         </member>
         <member name="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractRequestSerializer`1">
@@ -429,6 +586,17 @@
             using a <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/>. This class cannot be inherited.
             </summary>
             <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandRequest"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractRequestSerializer`1.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractRequestSerializer`1"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractRequestSerializer`1.#ctor(Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractRequestSerializer`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
         </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractRequestSerializer`1.CreateSerializer">
             <summary>
@@ -442,6 +610,17 @@
             using a <see cref="T:System.Runtime.Serialization.NetDataContractSerializer"/>. This class cannot be inherited.
             </summary>
             <typeparam name="T">A type that IS_A <see cref="T:Hyper.NodeServices.Contracts.Extensibility.CommandModules.ICommandResponse"/>.</typeparam>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractResponseSerializer`1.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractResponseSerializer`1"/> using <see cref="F:Hyper.NodeServices.Contracts.Extensibility.Serializers.XmlObjectSerializerWrapper.DefaultStringTransform"/>.
+            </summary>
+        </member>
+        <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractResponseSerializer`1.#ctor(Hyper.Extensibility.IO.IStringTransform)">
+            <summary>
+            Initializes an instance of <see cref="T:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractResponseSerializer`1"/> using the specified <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> instance.
+            </summary>
+            <param name="serializationTransform">The <see cref="T:Hyper.Extensibility.IO.IStringTransform"/> to use when transforming data between string and byte representations.</param>
         </member>
         <member name="M:Hyper.NodeServices.Contracts.Extensibility.Serializers.NetDataContractResponseSerializer`1.CreateSerializer">
             <summary>

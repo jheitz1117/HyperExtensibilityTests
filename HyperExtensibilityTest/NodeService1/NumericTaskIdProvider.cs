@@ -1,6 +1,6 @@
 ﻿using System;
-using Hyper.NodeServices.Contracts.SystemCommands;
 using Hyper.NodeServices.Extensibility;
+using Hyper.NodeServices.SystemCommands.Contracts;
 
 namespace NodeService1
 {

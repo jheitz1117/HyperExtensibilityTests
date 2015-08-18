@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Hyper.Extensibility</name>
+        <name>Hyper.Core.Extensibility</name>
     </assembly>
     <members>
         <member name="T:Hyper.Extensibility.ActivityTracking.IActivityItem">
@@ -69,6 +69,16 @@
             </summary>
             <param name="input">The <see cref="T:System.String"/> to transform.</param>
             <returns></returns>
+        </member>
+        <member name="T:Hyper.Extensibility.Versioning.ISupportsVersioning">
+            <summary>
+            Defines a <see cref="T:System.Version"/> property for use in versioning logic.
+            </summary>
+        </member>
+        <member name="P:Hyper.Extensibility.Versioning.ISupportsVersioning.Version">
+            <summary>
+            The <see cref="T:System.Version"/> of the object.
+            </summary>
         </member>
     </members>
 </doc>

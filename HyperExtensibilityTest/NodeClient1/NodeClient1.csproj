@@ -32,10 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hyper.NodeServices.Client">
-      <HintPath>..\Assemblies\Hyper.NodeServices.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Hyper.NodeServices.Contracts">
+    <Reference Include="Hyper.NodeServices.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="System" />

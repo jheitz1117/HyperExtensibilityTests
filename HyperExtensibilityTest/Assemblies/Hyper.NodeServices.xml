@@ -6,12 +6,12 @@
     <members>
         <member name="T:Hyper.NodeServices.ActivityTracking.TaskProgressCacheMonitor">
             <summary>
-            Collects <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo"/> objects based on task ID.
+            Collects <see cref="T:Hyper.NodeServices.SystemCommands.Contracts.HyperNodeTaskProgressInfo"/> objects based on task ID.
             </summary>
         </member>
         <member name="M:Hyper.NodeServices.ActivityTracking.TaskProgressCacheMonitor.GetTaskProgressInfo(System.String)">
             <summary>
-            Gets the <see cref="T:Hyper.NodeServices.Contracts.SystemCommands.HyperNodeTaskProgressInfo"/> object from the cache with the specified task ID. If no cache item exists with the specified task ID, return null.
+            Gets the <see cref="T:Hyper.NodeServices.SystemCommands.Contracts.HyperNodeTaskProgressInfo"/> object from the cache with the specified task ID. If no cache item exists with the specified task ID, return null.
             </summary>
             <param name="taskId">The task ID to look for.</param>
             <returns></returns>

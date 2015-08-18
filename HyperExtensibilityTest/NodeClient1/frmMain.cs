@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Hyper.NodeServices.Client;
 using Hyper.NodeServices.Contracts;
 
 namespace NodeClient1
