@@ -30,17 +30,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hyper.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Hyper.Core.1.0.0.0\lib\net45\Hyper.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hyper.Core.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Hyper.Core.Extensibility.1.0.0.0\lib\net45\Hyper.Core.Extensibility.dll</HintPath>
+    </Reference>
     <Reference Include="Hyper.NodeServices.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.dll</HintPath>
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.1.0.0.0\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="Hyper.NodeServices.Contracts.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.Extensibility.1.0.0.0\lib\net45\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
     </Reference>
     <Reference Include="Hyper.NodeServices.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\Hyper.NodeServices.Extensibility.dll</HintPath>
+      <HintPath>..\packages\Hyper.NodeServices.Extensibility.1.0.0.0\lib\net45\Hyper.NodeServices.Extensibility.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,6 +72,9 @@
       <Project>{DBA73E85-12D7-432C-85F5-EE7824A41E75}</Project>
       <Name>NodeExtensions.DbCommands.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
