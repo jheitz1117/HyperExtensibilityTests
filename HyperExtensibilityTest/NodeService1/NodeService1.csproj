@@ -32,11 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hyper.Core">
-      <HintPath>..\Assemblies\Hyper.Core.dll</HintPath>
+    <Reference Include="Hyper.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Hyper.Core.1.0.0.0\lib\net45\Hyper.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.Core.Extensibility">
-      <HintPath>..\Assemblies\Hyper.Core.Extensibility.dll</HintPath>
+    <Reference Include="Hyper.Core.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Hyper.Core.Extensibility.1.0.0.0\lib\net45\Hyper.Core.Extensibility.dll</HintPath>
     </Reference>
     <Reference Include="Hyper.NodeServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
