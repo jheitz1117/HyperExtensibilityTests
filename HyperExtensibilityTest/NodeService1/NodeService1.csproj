@@ -32,33 +32,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hyper.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hyper.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.Core.1.0.0.0\lib\net45\Hyper.Core.dll</HintPath>
+      <HintPath>..\packages\Hyper.Core.1.0.0.1\lib\net45\Hyper.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.Core.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hyper.Core.Extensibility, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.Core.Extensibility.1.0.0.0\lib\net45\Hyper.Core.Extensibility.dll</HintPath>
+      <HintPath>..\packages\Hyper.Core.Extensibility.1.0.0.1\lib\net45\Hyper.Core.Extensibility.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hyper.NodeServices, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.1.0.0.0\lib\net45\Hyper.NodeServices.dll</HintPath>
+      <HintPath>..\packages\Hyper.NodeServices.1.0.0.3\lib\net45\Hyper.NodeServices.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hyper.NodeServices.Contracts, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.Contracts.1.0.0.0\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.1.0.0.1\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Contracts.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hyper.NodeServices.Contracts.Extensibility, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.Contracts.Extensibility.1.0.0.0\lib\net45\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.Extensibility.1.0.0.1\lib\net45\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Extensibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hyper.NodeServices.Extensibility, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.Extensibility.1.0.0.0\lib\net45\Hyper.NodeServices.Extensibility.dll</HintPath>
+      <HintPath>..\packages\Hyper.NodeServices.Extensibility.1.0.0.1\lib\net45\Hyper.NodeServices.Extensibility.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices.SystemCommands.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hyper.NodeServices.SystemCommands.Contracts, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.SystemCommands.Contracts.1.0.0.0\lib\net45\Hyper.NodeServices.SystemCommands.Contracts.dll</HintPath>
+      <HintPath>..\packages\Hyper.NodeServices.SystemCommands.Contracts.1.0.0.1\lib\net45\Hyper.NodeServices.SystemCommands.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -92,8 +92,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NodeExtensions.DbCommands\NodeExtensions.DbCommands.csproj">

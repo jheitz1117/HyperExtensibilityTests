@@ -36,6 +36,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Hyper.NodeServices.Contracts.1.0.0.0\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
     </Reference>
+    <Reference Include="Hyper.NodeServices.Contracts.Extensibility">
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.Extensibility.1.0.0.0\lib\net45\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -80,7 +83,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NodeExtensions.DbCommands.Contracts\NodeExtensions.DbCommands.Contracts.csproj">
+      <Project>{dba73e85-12d7-432c-85f5-ee7824a41e75}</Project>
+      <Name>NodeExtensions.DbCommands.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
