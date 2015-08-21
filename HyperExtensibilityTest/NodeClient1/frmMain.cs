@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Hyper.NodeServices.Contracts;
+using Hyper.NodeServices.SystemCommands.Contracts;
 using NodeExtensions.DbCommands.Contracts;
 
 namespace NodeClient1
@@ -21,7 +22,8 @@ namespace NodeClient1
             var response = nodeService1.ProcessMessage(
                 new HyperNodeMessageRequest("NodeClient1")
                 {
-                    CommandName = "UpdateDatabase"
+                    CommandName = SystemCommandName.Echo,
+                    CommandRequestString = "Hello, world!"
                 }
             );
 
