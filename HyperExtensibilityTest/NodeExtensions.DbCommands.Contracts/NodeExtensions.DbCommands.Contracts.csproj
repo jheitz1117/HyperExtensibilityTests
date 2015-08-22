@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{28B31DE2-168C-4772-B5A7-5B383C2BF6CA}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{DBA73E85-12D7-432C-85F5-EE7824A41E75}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NodeService1</RootNamespace>
-    <AssemblyName>NodeService1</AssemblyName>
+    <RootNamespace>NodeExtensions.DbCommands.Contracts</RootNamespace>
+    <AssemblyName>NodeExtensions.DbCommands.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,10 +38,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Hyper.Core.Extensibility.1.0.0.2\lib\net45\Hyper.Core.Extensibility.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.1.0.0.5\lib\net45\Hyper.NodeServices.dll</HintPath>
-    </Reference>
     <Reference Include="Hyper.NodeServices.Contracts, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Hyper.NodeServices.Contracts.1.0.0.2\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
@@ -52,33 +46,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Hyper.NodeServices.Contracts.Extensibility.1.0.0.2\lib\net45\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Extensibility, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.Extensibility.1.0.0.2\lib\net45\Hyper.NodeServices.Extensibility.dll</HintPath>
-    </Reference>
-    <Reference Include="Hyper.NodeServices.SystemCommands.Contracts, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.SystemCommands.Contracts.1.0.0.3\lib\net45\Hyper.NodeServices.SystemCommands.Contracts.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,22 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandModules\NodeService1SpecificCommand.cs" />
-    <Compile Include="NumericTaskIdProvider.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ExecuteStoredProcedureRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NodeExtensions.DbCommands\NodeExtensions.DbCommands.csproj">
-      <Project>{905afd06-9764-4600-846c-ffe37b84e6d4}</Project>
-      <Name>NodeExtensions.DbCommands</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

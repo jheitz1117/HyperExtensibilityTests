@@ -20,9 +20,13 @@ namespace NodeService1
      */
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            HostingAttempt1();
+            // Can follow the hosting attempts for tutorial on how to self-host
+            HostingAttempt5();
+            
+            // TODO: Need to test documentation for Hyper.NodeServices namespace. This will be a doosey.
+            // TODO: Need to test extensibility for Hyper.NodeServices namespace.
         }
 
         public static void HostingAttempt1()
@@ -250,15 +254,16 @@ namespace NodeService1
 
                 // Wait for user input to shutdown
                 Console.ReadKey();
-
+                
                 // Save a reference to the singleton instance of the service and safe cast to IDisposable
                 disposableService = host.SingletonInstance as IDisposable;
 
-                /* Check for Faulted state and make the appropriate call to Abort() or Close(). Both will ensure
-                 * that the cancellation delegates are executed 
+                /* Check for Faulted state and make the appropriate call to Abort() or Close().
+                 * You can call Cancel() yourself if you prefer, but both Abort() and Close() call
+                 * the Cancel() method if cancellation hasn't already been reuested.
                  */
                 if (host.State == CommunicationState.Faulted)
-                    host.Abort();
+                    host.Abort();    
                 else
                     host.Close();
             }
@@ -321,17 +326,21 @@ namespace NodeService1
                 Console.ReadKey();
                 return;
             }
-
+            
             Console.WriteLine("Service started and is listening on the following addresses:");
             foreach (var endpoint in container.Endpoints)
             {
                 Console.WriteLine("    " + endpoint.Address);
             }
-
+            
             // Wait for user input to shutdown
             Console.ReadKey();
 
-            // Simply call Stop() to handle all details of closing, including disposing the service, calling abort or close appropriately, and executing our cancellation delegates
+            /* Simply call Stop() to handle all details of closing, including disposing the service and calling abort or close appropriately.
+             * The container doesn't care what type of ServiceHost it is working with, but if it happens to be a CancellableServiceHost,
+             * calling Abort() or Close() will automatically call Cancel() as discussed above. This ensures that our cancellation delegates
+             * are executed as expected.
+             */
             container.Stop();
 
             Console.ReadKey();

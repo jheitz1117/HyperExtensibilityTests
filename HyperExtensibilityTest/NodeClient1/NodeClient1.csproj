@@ -32,11 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hyper.NodeServices.Client">
-      <HintPath>..\Assemblies\Hyper.NodeServices.Client.dll</HintPath>
+    <Reference Include="Hyper.NodeServices.Contracts, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.1.0.0.2\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Contracts">
-      <HintPath>..\Assemblies\Hyper.NodeServices.Contracts.dll</HintPath>
+    <Reference Include="Hyper.NodeServices.Contracts.Extensibility">
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.Extensibility.1.0.0.0\lib\net45\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
+    </Reference>
+    <Reference Include="Hyper.NodeServices.SystemCommands.Contracts">
+      <HintPath>..\packages\Hyper.NodeServices.SystemCommands.Contracts.1.0.0.3\lib\net45\Hyper.NodeServices.SystemCommands.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,6 +74,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,12 +86,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NodeExtensions.Shared\NodeExtensions.Shared.csproj">
-      <Project>{2bc87e0a-3939-4512-8e23-87fe1e908fa7}</Project>
-      <Name>NodeExtensions.Shared</Name>
+    <ProjectReference Include="..\NodeExtensions.DbCommands.Contracts\NodeExtensions.DbCommands.Contracts.csproj">
+      <Project>{dba73e85-12d7-432c-85f5-ee7824a41e75}</Project>
+      <Name>NodeExtensions.DbCommands.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
