@@ -30,9 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hyper.Core, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hyper.Core, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.Core.1.0.0.3\lib\net45\Hyper.Core.dll</HintPath>
+      <HintPath>..\packages\Hyper.Core.1.0.0.4\lib\net45\Hyper.Core.dll</HintPath>
     </Reference>
     <Reference Include="Hyper.Core.Extensibility, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
