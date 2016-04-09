@@ -32,9 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hyper.NodeServices.Contracts, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.Contracts.1.0.0.2\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
+    <Reference Include="Hyper.NodeServices.Contracts, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.2.1.0.0\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Hyper.NodeServices.Contracts.Extensibility">
       <HintPath>..\packages\Hyper.NodeServices.Contracts.Extensibility.1.0.0.2\lib\net45\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>

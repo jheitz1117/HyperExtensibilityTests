@@ -6,7 +6,7 @@ namespace NodeService1
 {
     public class NumericTaskIdProvider : TaskIdProviderBase
     {
-        public override string CreateTaskId(IHyperNodeMessageContext context)
+        public override string CreateTaskId(IReadOnlyHyperNodeMessageInfo context)
         {
             return (context.CommandName == SystemCommandName.GetCachedTaskProgressInfo)
                 ? Guid.NewGuid().ToString()

@@ -30,25 +30,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hyper.Core, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.Core.1.0.0.4\lib\net45\Hyper.Core.dll</HintPath>
+    <Reference Include="Hyper.Core, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hyper.Core.2.1.0.0\lib\net45\Hyper.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Hyper.Core.Extensibility, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.Core.Extensibility.1.0.0.2\lib\net45\Hyper.Core.Extensibility.dll</HintPath>
+    <Reference Include="Hyper.Core.Extensibility, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hyper.Core.Extensibility.2.0.0.0\lib\net45\Hyper.Core.Extensibility.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Contracts, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.Contracts.1.0.0.2\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
+    <Reference Include="Hyper.NodeServices.Contracts, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.2.1.0.0\lib\net45\Hyper.NodeServices.Contracts.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Contracts.Extensibility, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.Contracts.Extensibility.1.0.0.2\lib\net45\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
+    <Reference Include="Hyper.NodeServices.Contracts.Extensibility, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hyper.NodeServices.Contracts.Extensibility.2.0.0.0\lib\net45\Hyper.NodeServices.Contracts.Extensibility.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Hyper.NodeServices.Extensibility, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hyper.NodeServices.Extensibility.1.0.0.2\lib\net45\Hyper.NodeServices.Extensibility.dll</HintPath>
+    <Reference Include="Hyper.NodeServices.Extensibility, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hyper.NodeServices.Extensibility.2.1.0.0\lib\net45\Hyper.NodeServices.Extensibility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hyper.NodeServices.SystemCommands.Contracts, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hyper.NodeServices.SystemCommands.Contracts.2.0.0.0\lib\net45\Hyper.NodeServices.SystemCommands.Contracts.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
